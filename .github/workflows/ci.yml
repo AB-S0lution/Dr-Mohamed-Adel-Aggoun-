@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Check 404.html exists in build output
+        run: |
+          if [ ! -f dist/404.html ]; then
+            echo "::error::dist/404.html is missing from the build output."
+            exit 1
+          fi
+
+      - name: Check .nojekyll exists in build output
+        run: |
+          if [ ! -f dist/.nojekyll ]; then
+            echo "::error::dist/.nojekyll is missing from the build output."
+            exit 1
+          fi
+
+      - name: Check for root-absolute URLs that ignore the repo base path
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          # Flag src="/..." or href="/..." that do NOT start with /REPO_NAME/
+          # (public assets / Vite entry points are rewritten by Vite itself,
+          # so this only catches hand-written absolute links that would break
+          # once the site is served from /REPO_NAME/).
+          MATCHES=$(grep -RnoE '(href|src)="/[^"/][^"]*"' dist --include=*.html | grep -v "=\"/${REPO_NAME}/" || true)
+          if [ -n "$MATCHES" ]; then
+            echo "::error::Found root-absolute URLs in dist/ that ignore the /${REPO_NAME}/ base path:"
+            echo "$MATCHES"
+            exit 1
+          fi
+
+      - name: Build artifact size
+        run: du -sh dist
