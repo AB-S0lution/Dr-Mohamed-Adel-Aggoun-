@@ -76,18 +76,18 @@ export default function Contact() {
         canonicalPath="/contact"
       />
 
-      <header className="page-head">
+      <header className="page-head contact-head">
         <div className="shell">
           <Reveal y={14}>
             <span className="eyebrow">Contact</span>
           </Reveal>
           <Reveal delay={0.06}>
-            <h1 className="display-xl" style={{ maxWidth: '20ch' }}>
+            <h1 className="display-xl contact-head__title">
               Préparer sa demande, <span className="accent-word">puis appeler</span>
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="lede" style={{ marginTop: '1.5rem' }}>
+            <p className="lede contact-head__lede">
               Ce formulaire n'envoie rien à un serveur et ne réserve aucun créneau. Il compose un
               message que vous envoyez vous-même, par WhatsApp ou par e-mail.
             </p>
@@ -95,21 +95,21 @@ export default function Contact() {
         </div>
       </header>
 
-      <section className="section">
+      <section className="section contact-section">
         <div className="shell">
-          <div className="split split--aside">
+          <div className="split split--aside contact-layout">
             {/* ---------- Formulaire ---------- */}
             <Reveal>
               <form
-                className="stack stack-md"
+                className="stack stack-md contact-form"
                 noValidate
                 onSubmit={(e) => {
                   e.preventDefault();
                   openLink('whatsapp');
                 }}
               >
-                <fieldset className="stack stack-md">
-                  <legend className="display-md" style={{ marginBottom: '1rem' }}>
+                <fieldset className="stack stack-md contact-form__group">
+                  <legend className="display-md contact-form__legend">
                     Vos coordonnées
                   </legend>
 
@@ -190,10 +190,10 @@ export default function Contact() {
                 </fieldset>
 
                 <fieldset>
-                  <legend className="display-md" style={{ marginBottom: '0.5rem' }}>
+                  <legend className="display-md contact-form__legend contact-form__legend--compact">
                     Jour souhaité
                   </legend>
-                  <p className="text-muted" style={{ fontSize: '0.86rem', marginBottom: '1rem' }}>
+                  <p className="text-muted contact-form__hint">
                     Indicatif seulement : la disponibilité réelle se confirme au téléphone.
                   </p>
 
@@ -220,9 +220,9 @@ export default function Contact() {
                     })}
                   </div>
 
-                  <div style={{ marginTop: '1.25rem' }} aria-live="polite">
+                  <div className="contact-slots" aria-live="polite">
                     {slots.length === 0 ? (
-                      <p className="text-muted" style={{ fontSize: '0.9rem' }}>
+                      <p className="text-muted contact-form__empty">
                         Le cabinet est fermé ce jour. Choisissez un autre jour.
                       </p>
                     ) : (
@@ -255,13 +255,13 @@ export default function Contact() {
                     onChange={set('message')}
                     placeholder="Depuis quand, traitements en cours, question précise"
                   />
-                  <p className="text-muted" style={{ fontSize: '0.82rem', marginTop: '0.5rem' }}>
+                  <p className="text-muted contact-form__privacy">
                     N'écrivez pas de résultat d'analyse sensible : ce message part par votre propre
                     application de messagerie.
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div className="contact-actions">
                   <button type="submit" className="btn btn-primary">
                     <WhatsappLogo size={17} weight="light" />
                     Envoyer par WhatsApp
@@ -276,8 +276,8 @@ export default function Contact() {
 
             {/* ---------- Aperçu du message et coordonnées ---------- */}
             <Reveal delay={0.1}>
-              <div className="stack stack-md">
-                <div className="card stack stack-sm">
+              <div className="stack stack-md contact-rail">
+                <div className="card stack stack-sm contact-card contact-card--preview">
                   <p className="fact__label">Aperçu du message</p>
                   <AnimatePresence mode="wait">
                     <motion.pre
@@ -298,7 +298,7 @@ Date souhaitée (à confirmer) : ${selectedDay.fullLabel}${
                   </AnimatePresence>
                 </div>
 
-                <div className="card stack stack-sm">
+                <div className="card stack stack-sm contact-card">
                   <p className="fact__label">Coordonnées</p>
                   <ul className="stack stack-sm">
                     <li>
@@ -324,11 +324,8 @@ Date souhaitée (à confirmer) : ${selectedDay.fullLabel}${
                   </ul>
                 </div>
 
-                <p
-                  className="text-muted"
-                  style={{ fontSize: '0.84rem', display: 'flex', gap: '0.6rem', lineHeight: 1.6 }}
-                >
-                  <Info size={18} weight="light" style={{ flex: 'none', marginTop: '0.1rem' }} />
+                <p className="text-muted contact-emergency">
+                  <Info size={18} weight="light" />
                   <span>
                     En cas d'urgence (malaise, hypoglycémie sévère, vomissements répétés chez une
                     personne diabétique), n'attendez pas de réponse écrite : appelez directement ou
@@ -343,7 +340,7 @@ Date souhaitée (à confirmer) : ${selectedDay.fullLabel}${
 
       {/* Ce qu'il faut apporter : la question posée au téléphone presque à
           chaque prise de rendez-vous, répondue une fois pour toutes. */}
-      <section className="section" aria-labelledby="preparer-titre" style={{ background: 'var(--bg-sunken)' }}>
+      <section className="section contact-prep" aria-labelledby="preparer-titre">
         <div className="shell">
           <div className="sec-head">
             <div>
@@ -351,13 +348,13 @@ Date souhaitée (à confirmer) : ${selectedDay.fullLabel}${
                 <span className="eyebrow">Avant de venir</span>
               </Reveal>
               <Reveal delay={0.05}>
-                <h2 id="preparer-titre" className="display-lg" style={{ maxWidth: '20ch' }}>
+                <h2 id="preparer-titre" className="display-lg contact-prep__title">
                   Ce qu'il faut <span className="accent-word">apporter</span>
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={0.1}>
-              <p className="lede">
+              <p className="lede contact-prep__lede">
                 Choisissez le motif le plus proche du vôtre. Ces listes sont indicatives : une
                 consultation se tient même s'il manque un document.
               </p>
@@ -384,8 +381,7 @@ Date souhaitée (à confirmer) : ${selectedDay.fullLabel}${
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={prep.slug}
-                className="prep-panel"
-                style={{ marginTop: '1.75rem' }}
+                className="prep-panel contact-prep__panel"
                 initial={reduce ? { opacity: 0 } : { opacity: 0, transform: 'translateY(0.6rem)' }}
                 animate={{ opacity: 1, transform: 'translateY(0rem)' }}
                 exit={reduce ? { opacity: 0 } : { opacity: 0, transform: 'translateY(-0.3rem)' }}

@@ -34,7 +34,11 @@ export function Reveal({
   return (
     <MotionTag
       className={className}
-      initial={reduce ? false : { opacity: 0, transform: `translateY(${y}px)` }}
+      // La visibilité ne doit jamais dépendre de l'IntersectionObserver :
+      // Lenis, une navigation profonde ou un chargement tardif peuvent faire
+      // rater la première observation. Le déplacement reste une amélioration
+      // progressive, le contenu est toujours lisible.
+      initial={reduce ? false : { opacity: 1, transform: `translateY(${y}px)` }}
       whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
       viewport={VIEWPORT}
       transition={{ duration: 0.72, delay, ease: EASE }}
@@ -50,7 +54,7 @@ const groupParent: Variants = {
 };
 
 const groupChild: Variants = {
-  hidden: { opacity: 0, transform: 'translateY(1.5rem)' },
+  hidden: { opacity: 1, transform: 'translateY(1.5rem)' },
   shown: { opacity: 1, transform: 'translateY(0rem)', transition: { duration: 0.68, ease: EASE } },
 };
 

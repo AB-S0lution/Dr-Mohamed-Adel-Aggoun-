@@ -40,7 +40,9 @@ export function RevealPhoto({
     <figure className={`photo ${className}`}>
       <motion.div
         className={`photo__frame ${graded ? 'photo--graded' : ''}`}
-        initial={reduce ? false : { clipPath: 'inset(0 0 100% 0)' }}
+        // Une image reste présente même si l'observateur se déclenche trop
+        // tard après une navigation ou l'initialisation du scroll lissé.
+        initial={reduce ? false : { clipPath: 'inset(0 0 0% 0)' }}
         whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
         viewport={VIEWPORT}
         transition={{ duration: 1.05, ease: EASE }}
@@ -52,7 +54,7 @@ export function RevealPhoto({
           decoding="async"
           fetchPriority={priority ? 'high' : 'auto'}
           className={imgClassName}
-          initial={reduce ? false : { transform: 'scale(1.14)' }}
+          initial={reduce ? false : { transform: 'scale(1)' }}
           whileInView={{ transform: 'scale(1)' }}
           viewport={VIEWPORT}
           transition={{ duration: 1.35, ease: EASE }}
