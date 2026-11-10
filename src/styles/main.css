@@ -1062,6 +1062,7 @@ a { color: inherit; }
 /* ---------- Scène épinglée du parcours de consultation ---------- */
 
 .pin-stage { position: relative; }
+.pin-content { margin-top: clamp(2rem, 4vw, 3rem); }
 .pin-viewport {
   min-height: 100dvh;
   display: flex;
