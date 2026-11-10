@@ -1,4 +1,4 @@
-// Données vérifiées — identité du cabinet (PLAN.md §1). Ne pas modifier sans
+// Données vérifiées : identité du cabinet (PLAN.md §1). Ne pas modifier sans
 // confirmation du praticien. Ce site est une démonstration indépendante, non
 // encore validée par le Dr Aggoun.
 
@@ -8,7 +8,7 @@ export const SITE = {
   practitionerArabic: 'الدكتور عقون محمد عادل',
   specialtyShort: 'Diabétologie et endocrinologie',
   specialtyFull: 'Diabétologie, endocrinologie et maladies métaboliques',
-  fullTitle: 'Cabinet de Diabétologie et d’Endocrinologie — Dr Aggoun Mohamed Adel',
+  fullTitle: 'Cabinet de Diabétologie et d’Endocrinologie, Dr Aggoun Mohamed Adel',
   city: 'Tazoult',
   wilaya: 'Batna',
   country: 'Algérie',

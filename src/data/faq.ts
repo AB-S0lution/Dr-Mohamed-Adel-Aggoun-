@@ -1,4 +1,4 @@
-// Données d'exemple (sample data) — questions fréquentes pratiques. Pas de
+// Données d'exemple (sample data) : questions fréquentes pratiques. Pas de
 // prix ni d'information médicale individualisée. Voir PLAN.md §4 et §5.
 
 export interface FaqItem {

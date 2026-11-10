@@ -1,7 +1,7 @@
-// Données vérifiées — horaires d'ouverture (PLAN.md §1, source MaWilaya,
+// Données vérifiées : horaires d'ouverture (PLAN.md §1, source MaWilaya,
 // mise à jour 21 juin 2026). Ce ne sont pas des données fictives : ne pas
 // modifier sans confirmation. Un second relevé (Addalile) indique un horaire
-// différent le mardi (08:00–15:00) ; non retenu, signalé en TODO propriétaire.
+// différent le mardi (08:00 à 15:00) ; non retenu, signalé en TODO propriétaire.
 
 export interface DayHours {
   day: string;
@@ -23,7 +23,7 @@ export const HOURS: DayHours[] = [
 ];
 
 export const HOURS_TODO_NOTE =
-  'À confirmer avec le praticien : un second annuaire indique un horaire différent le mardi (08:00–15:00). Le site affiche l’horaire de la source la plus directement vérifiée (samedi à mercredi 08:00–15:30, jeudi 08:00–13:00, vendredi fermé).';
+  'À confirmer avec le praticien : un second annuaire indique un horaire différent le mardi (08:00 à 15:00). Le site affiche l’horaire de la source la plus directement vérifiée (samedi à mercredi 08:00 à 15:30, jeudi 08:00 à 13:00, vendredi fermé).';
 
 export function getTodayHours(): DayHours {
   const jsDay = new Date().getDay(); // 0 = dimanche in JS

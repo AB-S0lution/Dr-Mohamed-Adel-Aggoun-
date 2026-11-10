@@ -1,4 +1,4 @@
-// Données d'exemple (sample data) — descriptions informatives des motifs de
+// Données d'exemple (sample data) : descriptions informatives des motifs de
 // consultation les plus courants en diabétologie et endocrinologie. Contenu
 // générique à visée pédagogique, non spécifique à un patient. Aucune mention
 // de prix, de résultats garantis ou de comparaison : voir PLAN.md §4.
@@ -11,7 +11,7 @@ export interface Specialty {
   tag: SpecialtyTag[];
   summary: string;
   detail: string;
-  /** Signes qui amènent habituellement à consulter — informatif, pas un outil d’auto-diagnostic. */
+  /** Signes qui amènent habituellement à consulter : informatif, pas un outil d’auto-diagnostic. */
   signs: string[];
   icon: 'curve' | 'leaf' | 'drop' | 'scale' | 'sun' | 'pulse' | 'shield' | 'seed' | 'wave' | 'node' | 'compass' | 'anchor';
 }

@@ -102,32 +102,68 @@ National de l'Ordre des Médecins) bar doctors from advertising as a business. T
 
 ## 7. Design direction
 
-**Concept — "Équilibre" (balance).** Endocrinology/diabetology is medically about hormonal and metabolic
-balance; visually that becomes a calm, confident asymmetric layout built around a recurring motif of a
-smooth regulated curve (a calibrated wave/line — evokes a glucose curve or a steady heartbeat without
-being a literal clinical chart cliché). This is the site's one signature visual idea, not a generic
-medical/SaaS template.
+> **Revised 2026-11-10, after the client rejected the first build** ("basic, no animation, no photos,
+> obviously AI-generated, bad navbar, bad folder structure for React/Vite"). The original direction
+> (concept "Équilibre", Fraunces + pine/sand/terracotta, 100% original SVG art, vanilla-TS multi-page)
+> is kept below under *Superseded* for the record. What follows is what the site actually is.
 
-- **Explicitly avoid:** purple/blue SaaS gradients, generic rounded-card dashboards, Inter/system-font
-  default pairing, stock hospital photography, cookie-cutter hero-with-illustration-on-right layouts,
-  anything that reads as an AI-generated template. This must read as the work of a human editorial/brand
-  designer who was briefed on this specific practice and place — reviewed explicitly against that bar
-  before shipping (`design-taste-frontend`, `redesign-existing-projects` anti-slop checks, `break-ui`).
-- **Palette:** warm, grounded, clinical-but-human — deep pine/teal ink, warm sand/paper background,
-  one terracotta/clay accent (nods to the Aurès/Batna region without kitsch), not sterile hospital white.
-- **Type pairing:** an editorial warm serif for display (e.g. Fraunces or similar — distinctive, not
-  overused) + a clean humanist sans for body/UI that isn't Inter (e.g. a Fontshare family such as
-  General Sans/Supreme). Full French accents, French typography (non-breaking space before `: ; ! ?`,
-  « guillemets »).
-- **Motion:** calm and confident, not flashy — scroll-triggered reveals, the balance-curve motif drawn/
-  animated on scroll, a pinned step-by-step for "déroulement d'une consultation," subtle parallax,
-  smooth scroll (Lenis), page-load reveal. transform/opacity only, full `prefers-reduced-motion`
-  fallback, 60fps, mobile-friendly, nothing overengineered or overwhelming — restraint over spectacle.
-- **Imagery:** 100% original SVG/CSS art (line-art medical motifs, the balance-curve, an abstract
-  Tazoult/Aurès skyline silhouette) — no stock or scraped photography, since no real photo exists yet.
-- **Theme:** light and dark, both built on the same token set, dark mode is a deliberate warm-dark
-  (not pure black/inverted-SaaS-dark).
-- Language: French, correct accents and typography throughout.
+**Concept — "Clinique éditorial".** A trust-first local healthcare site read mostly on a phone by
+patients in Tazoult/Batna. The structure is editorial (an asymmetric hero, rules instead of cards,
+a bento that tiles exactly, long-form articles) and the register is clinical: no promise, no price,
+no testimonial. Motion is present on every screen but is never the subject.
+
+- **Stack:** React 19 + Vite 8 (SPA, React Router 7), Tailwind v4 via `@tailwindcss/vite`, Motion
+  (`motion/react`) for reveals/transitions, GSAP ScrollTrigger for the single pinned scene, Lenis
+  for smooth scroll. Base `/Dr-Mohamed-Adel-Aggoun-/`, `404.html` emitted as a copy of `index.html`
+  by a Vite plugin so deep links work on GitHub Pages.
+- **Palette:** clinical blue and white, chosen by the client. `--c-blue-700 #0f4c81` is the single
+  accent (8.86:1 on white); ink is a cool near-black `--c-ink-900 #0b1b2b`; paper is `#f5f7fa`.
+  Three signal colours (`open`, `warn`, `high`) exist only for state, never for brand. One accent,
+  one radius scale, one grey family.
+- **Type:** Cabinet Grotesk (display, 700/800) + Satoshi (text, 400/500/700 with real italics), both
+  **self-hosted** in `src/assets/fonts/` under the Fontshare licence. No CDN: the page renders
+  without reaching any third party. Fraunces is explicitly out (banned as an LLM-favourite display
+  serif). Emphasis inside a heading is same-family weight + colour + an underline rule, never a
+  synthetic italic (Cabinet Grotesk has no italic) and never a second family.
+- **Motion:** page transitions, staggered reveals, clip-path photo reveals, parallax, a reading
+  progress bar, and exactly **one** pinned scene in the whole site (the consultation steps on the
+  home page, horizontal scrub, GSAP ScrollTrigger). Transform and opacity only. Every animation is
+  gated on `prefers-reduced-motion`; the pinned scene additionally needs ≥ 900px. No marquee: the
+  client specifically rejected the title slider.
+- **Imagery:** five photographs from Unsplash, under the Unsplash licence, listed in §7b. All show
+  generic consultation, nutrition or instrument subjects. Deliberately **no stock portrait**: a stock
+  face on a real named doctor's site reads as a photo of Dr Aggoun. The logo, the twelve specialty
+  glyphs and the illustrations remain original SVG. Photos share one blue grade (`.photo--graded`)
+  so mixed sources read as one library.
+- **Theme:** light by default regardless of OS preference, with a manual dark theme on the same
+  tokens, remembered in `localStorage`.
+- Language: French, correct accents and typography. No em dash or en dash anywhere in the source
+  (project-wide gate) — use a comma, a colon, or "à" for ranges.
+
+### 7b. Image credits
+
+Photographs are from **Unsplash**, used under the [Unsplash licence](https://unsplash.com/license)
+(free to use, no attribution required; credited here anyway). None depicts the practitioner, his
+team, his patients or his premises, and each `alt` says what it actually shows.
+
+| File | Subject |
+| --- | --- |
+| `cabinet-consultation.jpg` | Consultation desk, screen showing a follow-up chart (home hero) |
+| `accompagnement-mains.jpg` | A carer's hands over a patient's, during an interview |
+| `stethoscope.jpg` | Stethoscope on a light sheet, black and white |
+| `alimentation-equilibre.jpg` | A composed plate of vegetables and pulses |
+| `legumes-nutrition.jpg` | Prepared vegetables and crudités in separate portions |
+
+A sixth image (`consultation-echange.jpg`) was removed on 2026-11-10: it carried a legible
+"UROLOGIC ONCOLOGY BRANCH" badge, which is the wrong specialty, and put two identifiable faces in
+the foreground of a named doctor's home page.
+
+### 7c. Superseded (first build, rejected)
+
+Concept "Équilibre": a sinusoidal balance curve drawn on scroll, Fraunces + Fontshare sans, warm
+pine/sand/terracotta palette, 100% original SVG art and no photography, vanilla-TS multi-page Vite.
+Rejected by the client as basic and obviously AI-generated. The curve survives only in the logo mark
+and the specialty glyphs; the palette and the type pairing are gone.
 
 ## 8. Open items / owner decisions (list in the final report, do not block the build on these)
 

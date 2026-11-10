@@ -1,4 +1,4 @@
-// Données d'exemple (sample data) — déroulement d'une consultation,
+// Données d'exemple (sample data) : déroulement d'une consultation,
 // présenté de façon générique et informative. Voir PLAN.md §5.
 
 export interface ProcessStep {

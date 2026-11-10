@@ -1,11 +1,11 @@
-// Jeu d'icônes maison — traits fins et continus (1.5px), cohérents avec le
+// Jeu d'icônes maison : traits fins et continus (1.5px), cohérents avec le
 // motif de la courbe d'équilibre. Art original, pas une librairie
 // générique : volontairement réduit à ce dont le site a besoin.
 
 const WRAP = (inner: string, size = 22) =>
   `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
 
-const PATHS: Record<string, string> = {
+export const PATHS: Record<string, string> = {
   curve: '<path d="M2 16c3 0 3-9 6-9s2 10 5 10 2-9 5-9 2 8 4 8"/>',
   wave: '<path d="M2 12c2.5-4 5-4 7.5 0s5 4 7.5 0 3.5-4 5-2"/>',
   leaf: '<path d="M4 20c0-9 5-15 15-16-1 11-6 15-15 16Z"/><path d="M6 18c3-4 7-7 12-9"/>',

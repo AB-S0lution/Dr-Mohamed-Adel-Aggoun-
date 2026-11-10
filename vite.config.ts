@@ -1,26 +1,28 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
+import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { resolve } from 'node:path';
 
-const root = resolve(import.meta.dirname);
+// GitHub Pages serves 404.html for any unknown path. Shipping a copy of the
+// built index.html under that name lets the client router handle deep links
+// and refreshes instead of showing GitHub's own 404 page.
+function spaFallback(): Plugin {
+  return {
+    name: 'spa-404-fallback',
+    enforce: 'post',
+    apply: 'build',
+    generateBundle(_options, bundle) {
+      const index = bundle['index.html'];
+      if (index && index.type === 'asset') {
+        this.emitFile({ type: 'asset', fileName: '404.html', source: index.source });
+      }
+    },
+  };
+}
 
 export default defineConfig({
   base: '/Dr-Mohamed-Adel-Aggoun-/',
-  plugins: [tailwindcss()],
+  plugins: [react(), tailwindcss(), spaFallback()],
   build: {
-    rollupOptions: {
-      input: {
-        main: resolve(root, 'index.html'),
-        cabinet: resolve(root, 'le-cabinet.html'),
-        specialites: resolve(root, 'specialites.html'),
-        conseils: resolve(root, 'conseils-sante.html'),
-        faq: resolve(root, 'faq.html'),
-        horaires: resolve(root, 'horaires-acces.html'),
-        contact: resolve(root, 'contact.html'),
-        mentions: resolve(root, 'mentions-legales.html'),
-        confidentialite: resolve(root, 'confidentialite.html'),
-        notFound: resolve(root, '404.html'),
-      },
-    },
+    assetsInlineLimit: 2048,
   },
 });

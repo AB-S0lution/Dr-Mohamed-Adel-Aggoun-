@@ -1,4 +1,4 @@
-// Données d'exemple (sample data) — articles « Conseils santé ». Contenu
+// Données d'exemple (sample data) : articles « Conseils santé ». Contenu
 // d'information générale grand public sur le diabète, la thyroïde et le
 // métabolisme, rédigé de façon générique (jamais attribué personnellement au
 // praticien), sans promesse de résultat ni avis médical individualisé. Voir
@@ -22,7 +22,7 @@ export const ARTICLES: Article[] = [
       'Le jeûne modifie les besoins en traitement et les repas. Quelques repères pour en parler avec son médecin avant le mois sacré.',
     category: 'Diabète',
     readTime: 6,
-    date: '2026-02-02',
+    date: '2026-09-26',
     body: [
       'Le jeûne du Ramadan change le rythme des repas, du sommeil et de l’activité physique, ce qui modifie les besoins en traitement pour une personne diabétique. Dans beaucoup de cas, un ajustement des horaires ou des doses est nécessaire avant le début du mois sacré, et non une fois le jeûne commencé.',
       'Un avis médical en amont permet d’évaluer si le jeûne est envisageable selon le type de diabète, l’ancienneté de la maladie et les traitements en cours. Certaines situations (hypoglycémies fréquentes, diabète mal équilibré, grossesse) demandent une attention particulière.',
@@ -37,7 +37,7 @@ export const ARTICLES: Article[] = [
       'Ce dosage sanguin reflète l’équilibre glycémique des deux ou trois derniers mois. Comment le lire sans paniquer.',
     category: 'Diabète',
     readTime: 5,
-    date: '2026-01-18',
+    date: '2026-09-11',
     body: [
       'L’hémoglobine glyquée, ou HbA1c, mesure la proportion de sucre fixée sur l’hémoglobine des globules rouges. Comme ces cellules vivent environ trois mois, ce dosage donne une image moyenne de la glycémie sur cette période, plutôt qu’une photo instantanée comme la glycémie capillaire.',
       'Un résultat exprimé en pourcentage permet de situer l’équilibre global du diabète. L’objectif n’est pas le même pour tout le monde : il dépend de l’âge, de l’ancienneté du diabète et des autres maladies éventuelles, d’où l’intérêt d’en discuter individuellement plutôt que de viser un chiffre universel.',
@@ -51,7 +51,7 @@ export const ARTICLES: Article[] = [
       'Pas besoin d’un régime importé : les plats de tous les jours peuvent s’adapter avec quelques ajustements simples.',
     category: 'Nutrition',
     readTime: 7,
-    date: '2026-01-05',
+    date: '2026-08-29',
     body: [
       'Couscous, chorba, pain traditionnel, légumineuses : la cuisine de tous les jours dans la région peut tout à fait s’intégrer à une alimentation adaptée au diabète, sans renoncer aux plats familiaux.',
       'La notion d’index glycémique aide à comprendre pourquoi deux portions de glucides équivalentes n’ont pas le même effet sur la glycémie : une légumineuse comme les pois chiches ou les lentilles élève la glycémie plus lentement qu’une semoule très raffinée.',
@@ -66,7 +66,7 @@ export const ARTICLES: Article[] = [
       'Tremblements, sueurs, faim brutale : des signes à connaître pour agir vite et sans attendre.',
     category: 'Diabète',
     readTime: 4,
-    date: '2025-12-20',
+    date: '2026-08-13',
     body: [
       'Une hypoglycémie correspond à une baisse du taux de sucre dans le sang en dessous du seuil habituel. Elle peut se manifester par des tremblements, des sueurs, une pâleur, une sensation de faim brutale ou des difficultés de concentration.',
       'La réaction immédiate consiste à resucrer rapidement : un verre de jus de fruit, quelques morceaux de sucre, puis vérifier la glycémie si un lecteur est disponible. Il est utile d’avoir toujours sur soi de quoi resucrer en cas de besoin.',
@@ -80,7 +80,7 @@ export const ARTICLES: Article[] = [
       'Pas besoin de salle de sport : les gestes du quotidien contribuent déjà à l’équilibre glycémique.',
     category: 'Mode de vie',
     readTime: 5,
-    date: '2025-12-08',
+    date: '2026-08-01',
     body: [
       'L’activité physique améliore la sensibilité à l’insuline, aide à réguler le poids et protège le cœur. Elle ne se résume pas à une salle de sport : marcher d’un bon pas, monter les escaliers, jardiner ou faire le ménage comptent aussi.',
       'L’objectif raisonnable souvent cité est d’environ trente minutes d’activité modérée la plupart des jours de la semaine, avec la possibilité de fractionner en plusieurs courtes sessions si une seule longue séance n’est pas possible.',
@@ -94,7 +94,7 @@ export const ARTICLES: Article[] = [
       'Une fatigue qui dure, une prise de poids inexpliquée, une frilosité nouvelle : des signes à ne pas négliger.',
     category: 'Thyroïde',
     readTime: 5,
-    date: '2025-11-22',
+    date: '2026-07-16',
     body: [
       'La thyroïde, petite glande à la base du cou, régule une grande partie du métabolisme. Quand elle fonctionne au ralenti, la fatigue, la prise de poids, la frilosité ou la constipation peuvent s’installer progressivement, parfois sans qu’on fasse le lien avec la thyroïde.',
       'Ces signes restent non spécifiques : ils peuvent avoir d’autres causes. Un dosage sanguin simple (TSH) permet souvent d’orienter rapidement le diagnostic et d’éviter de attribuer ces symptômes uniquement au stress ou à la fatigue de fin d’année.',
@@ -108,7 +108,7 @@ export const ARTICLES: Article[] = [
       'Un carnet de santé bien rempli aide à repérer tôt un ralentissement de la courbe de croissance.',
     category: 'Pédiatrie',
     readTime: 6,
-    date: '2025-11-10',
+    date: '2026-07-04',
     body: [
       'Le carnet de santé de l’enfant contient des courbes de poids et de taille qui, suivies régulièrement, permettent de repérer un ralentissement ou une accélération inhabituelle de la croissance.',
       'Un enfant nettement plus petit que ses camarades du même âge, ou dont la courbe s’infléchit nettement sur plusieurs mesures, justifie un avis médical pour rechercher une cause éventuelle, hormonale ou non.',
@@ -122,7 +122,7 @@ export const ARTICLES: Article[] = [
       'Le surpoids a souvent des causes multiples. L’accompagnement vise à comprendre, pas à juger.',
     category: 'Mode de vie',
     readTime: 5,
-    date: '2025-10-29',
+    date: '2026-06-22',
     body: [
       'Le poids résulte de nombreux facteurs : génétique, hormonal, habitudes alimentaires, sommeil, stress, parfois certains traitements. Réduire la question à « manger moins, bouger plus » ignore cette complexité et peut décourager plutôt qu’aider.',
       'Une consultation centrée sur le poids cherche d’abord à comprendre le contexte de chaque personne, à repérer d’éventuelles causes hormonales, puis à construire des objectifs progressifs et tenables plutôt qu’un changement radical et temporaire.',
@@ -136,7 +136,7 @@ export const ARTICLES: Article[] = [
       'Une petite plaie négligée peut s’aggraver rapidement en cas de diabète. Quelques réflexes simples protègent.',
     category: 'Diabète',
     readTime: 4,
-    date: '2025-10-14',
+    date: '2026-06-07',
     body: [
       'Le diabète, surtout quand il est ancien ou mal équilibré, peut diminuer la sensibilité des pieds et ralentir la cicatrisation. Une petite plaie ou une ampoule négligée peut alors s’aggraver plus vite que chez une personne non diabétique.',
       'Quelques gestes simples réduisent nettement ce risque : inspecter ses pieds chaque jour, même rapidement, porter des chaussures bien ajustées, éviter de marcher pieds nus, et couper les ongles avec précaution.',
@@ -150,7 +150,7 @@ export const ARTICLES: Article[] = [
       'Mal dormir perturbe la glycémie et l’appétit. Un sommeil régulier fait partie du traitement.',
     category: 'Mode de vie',
     readTime: 5,
-    date: '2025-09-30',
+    date: '2026-05-24',
     body: [
       'Un sommeil insuffisant ou de mauvaise qualité modifie la régulation de la glycémie et peut augmenter la sensation de faim le lendemain, en particulier l’envie d’aliments sucrés ou gras.',
       'Les personnes qui ronflent fort ou qui se sentent fatiguées malgré une nuit complète peuvent présenter un trouble respiratoire du sommeil, plus fréquent en cas de surpoids ou de diabète de type 2, et qui mérite d’être évoqué en consultation.',
@@ -164,7 +164,7 @@ export const ARTICLES: Article[] = [
       'Le diabète fragilise aussi les artères. Pourquoi le bilan lipidique fait partie du suivi, au même titre que la glycémie.',
     category: 'Nutrition',
     readTime: 5,
-    date: '2025-09-12',
+    date: '2026-05-06',
     body: [
       'Le diabète n’agit pas seul sur les artères : il s’associe souvent à un déséquilibre du cholestérol, avec un LDL (le « mauvais » cholestérol) plus facilement oxydé et un HDL (le « bon » cholestérol) parfois abaissé. Cette combinaison augmente le risque cardiovasculaire plus que chaque facteur pris isolément.',
       'C’est pourquoi un bilan lipidique régulier fait partie du suivi habituel du diabète, au même titre que l’HbA1c, même en l’absence de symptôme. Les artères peuvent se fragiliser progressivement sans aucun signe perceptible pendant des années.',
@@ -178,7 +178,7 @@ export const ARTICLES: Article[] = [
       'Le stress prolongé agit directement sur le cortisol, l’appétit et la glycémie. Un facteur souvent sous-estimé.',
     category: 'Mode de vie',
     readTime: 6,
-    date: '2025-08-25',
+    date: '2026-04-18',
     body: [
       'Face à un stress ponctuel, le corps libère du cortisol et de l’adrénaline, utiles pour réagir rapidement. Mais quand le stress devient chronique, cette même réponse hormonale peut maintenir la glycémie plus haute que nécessaire et favoriser le stockage des graisses, en particulier au niveau abdominal.',
       'Le stress chronique modifie aussi le comportement alimentaire : il pousse souvent vers des aliments riches en sucre ou en graisse, et perturbe le sommeil, ce qui aggrave encore le déséquilibre métabolique dans un cercle qui s’entretient lui-même.',
@@ -192,7 +192,7 @@ export const ARTICLES: Article[] = [
       'Passer à l’insuline n’est pas un échec personnel. C’est une étape du traitement, parfois nécessaire quand les autres options ne suffisent plus.',
     category: 'Diabète',
     readTime: 6,
-    date: '2026-03-15',
+    date: '2026-11-06',
     body: [
       'Le diabète de type 2 évolue dans le temps : le pancréas peut progressivement produire moins d’insuline, même quand l’alimentation et l’activité physique restent adaptées. Dans ce cas, les comprimés seuls ne suffisent plus toujours à maintenir un bon équilibre glycémique.',
       'Beaucoup de patients associent l’insuline à une aggravation ou à un échec personnel. Ce n’est pas le cas : il s’agit d’une évolution naturelle de la maladie chez une partie des personnes diabétiques, pas d’une punition pour ne pas avoir assez fait d’efforts.',
@@ -207,7 +207,7 @@ export const ARTICLES: Article[] = [
       'Les besoins de la thyroïde augmentent pendant la grossesse. Un déséquilibre non repéré peut avoir des conséquences, d’où l’intérêt d’un dépistage précoce.',
     category: 'Thyroïde',
     readTime: 5,
-    date: '2026-03-02',
+    date: '2026-10-24',
     body: [
       'Pendant la grossesse, les besoins en hormones thyroïdiennes augmentent, en particulier au premier trimestre, pour accompagner le développement du bébé. La thyroïde de la future mère doit s’adapter rapidement à cette demande accrue.',
       'Une hypothyroïdie ou, plus rarement, une hyperthyroïdie non repérée pendant la grossesse peut avoir des répercussions sur son déroulement. C’est pourquoi un dosage de la TSH est souvent proposé tôt, en particulier en cas d’antécédent personnel ou familial de maladie thyroïdienne.',
@@ -222,7 +222,7 @@ export const ARTICLES: Article[] = [
       'Connue pour les os, la vitamine D intervient aussi dans la régulation du métabolisme et de l’immunité. Un déficit est fréquent, surtout l’hiver.',
     category: 'Nutrition',
     readTime: 4,
-    date: '2026-02-20',
+    date: '2026-10-14',
     body: [
       'La vitamine D est surtout connue pour son rôle dans la solidité des os, mais elle intervient aussi dans la régulation de l’immunité et semble jouer un rôle dans la sensibilité à l’insuline, bien que ce dernier lien reste étudié.',
       'La principale source de vitamine D est la synthèse cutanée sous l’effet du soleil, et non l’alimentation seule. Une exposition solaire limitée, une peau très couverte ou un hiver prolongé peuvent favoriser un déficit, fréquent dans la population générale.',
@@ -236,7 +236,7 @@ export const ARTICLES: Article[] = [
       'Une tension élevée aggrave le risque cardiovasculaire déjà présent avec le diabète. Elle se mesure et se traite avec la même rigueur que la glycémie.',
     category: 'Mode de vie',
     readTime: 5,
-    date: '2026-02-08',
+    date: '2026-10-02',
     body: [
       'Le diabète et l’hypertension artérielle coexistent fréquemment, et leur association multiplie le risque sur le cœur, les reins et les artères par rapport à chacun pris séparément. C’est pourquoi la tension artérielle est mesurée à chaque consultation de suivi du diabète, pas seulement en cas de symptôme.',
       'Une tension élevée ne donne le plus souvent aucun signe ressenti : ni mal de tête systématique, ni vertige fiable pour la détecter. Seule une mesure régulière, au cabinet ou à domicile avec un appareil validé, permet de la repérer.',
@@ -250,7 +250,7 @@ export const ARTICLES: Article[] = [
       'Changement de climat, de fuseau horaire, de repas : voyager avec un diabète demande une préparation simple mais utile.',
     category: 'Mode de vie',
     readTime: 5,
-    date: '2026-01-26',
+    date: '2026-09-19',
     body: [
       'Voyager avec un diabète ne pose généralement pas de problème particulier, à condition d’anticiper quelques points : quantité suffisante de traitement et de matériel d’autosurveillance pour toute la durée, plus une marge en cas de retard ou d’imprévu.',
       'L’insuline doit être transportée à température raisonnable, à l’abri de la chaleur excessive ou du gel, idéalement en bagage à main lors d’un trajet en avion, avec une trousse isotherme simple si le trajet est long.',
@@ -265,7 +265,7 @@ export const ARTICLES: Article[] = [
       'Avant l’apparition du diabète de type 2, les cellules peuvent déjà moins bien répondre à l’insuline. Un mécanisme clé, souvent silencieux.',
     category: 'Diabète',
     readTime: 6,
-    date: '2026-01-12',
+    date: '2026-09-05',
     body: [
       'L’insuline permet au glucose du sang d’entrer dans les cellules pour y être utilisé comme énergie. Quand les cellules répondent moins bien à ce signal, on parle de résistance à l’insuline : le pancréas compense en produisant plus d’insuline, parfois pendant des années, avant que la glycémie elle-même ne s’élève.',
       'La résistance à l’insuline est favorisée par l’excès de graisse abdominale, la sédentarité et certains facteurs génétiques. Elle précède souvent de plusieurs années le diagnostic de diabète de type 2, sans donner de symptôme particulier.',
@@ -280,7 +280,7 @@ export const ARTICLES: Article[] = [
       'Plutôt que l’interdiction stricte, une approche progressive aide les enfants à construire une relation saine avec les aliments sucrés.',
     category: 'Pédiatrie',
     readTime: 5,
-    date: '2025-12-30',
+    date: '2026-08-23',
     body: [
       'Interdire totalement le sucre chez un enfant crée souvent l’effet inverse : une envie renforcée et, parfois, des prises cachées. Une approche plus progressive, centrée sur la régularité des repas et la modération, donne généralement de meilleurs résultats sur la durée.',
       'Associer systématiquement un aliment sucré à une récompense ou, au contraire, à une punition renforce son pouvoir émotionnel. Le présenter simplement comme un aliment parmi d’autres, à certains moments plutôt qu’à volonté, aide à désamorcer cette charge.',
@@ -288,6 +288,11 @@ export const ARTICLES: Article[] = [
     ],
   },
 ];
+
+/** Du plus récent au plus ancien. Toute liste du site consomme cet ordre. */
+export const ARTICLES_BY_DATE: Article[] = [...ARTICLES].sort((a, b) =>
+  b.date.localeCompare(a.date),
+);
 
 export function findArticle(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.slug === slug);

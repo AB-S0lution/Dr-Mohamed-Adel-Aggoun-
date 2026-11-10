@@ -1,4 +1,4 @@
-// Calculateur d'IMC (indice de masse corporelle) — outil informatif, client
+// Calculateur d'IMC (indice de masse corporelle) : outil informatif, client
 // uniquement, aucune donnée transmise nulle part. Formule générale de l'OMS,
 // catégories à visée pédagogique. Ne remplace jamais un avis médical
 // individualisé : voir PLAN.md §4 (pas de diagnostic, pas de promesse de
@@ -9,24 +9,24 @@ export interface BmiCategory {
   key: 'maigreur' | 'normal' | 'surpoids' | 'obesite1' | 'obesite2' | 'obesite3';
   label: string;
   range: string;
-  /** Position 0–1 le long de la jauge, utilisée pour placer le repère. */
+  /** Position de 0 à 1 le long de la jauge, utilisée pour placer le repère. */
   gaugeFrom: number;
   gaugeTo: number;
 }
 
 export const BMI_CATEGORIES: BmiCategory[] = [
   { key: 'maigreur', label: 'Maigreur', range: '< 18,5', gaugeFrom: 0, gaugeTo: 0.16 },
-  { key: 'normal', label: 'Poids habituel', range: '18,5 – 24,9', gaugeFrom: 0.16, gaugeTo: 0.42 },
-  { key: 'surpoids', label: 'Surpoids', range: '25 – 29,9', gaugeFrom: 0.42, gaugeTo: 0.62 },
-  { key: 'obesite1', label: 'Obésité modérée', range: '30 – 34,9', gaugeFrom: 0.62, gaugeTo: 0.78 },
-  { key: 'obesite2', label: 'Obésité sévère', range: '35 – 39,9', gaugeFrom: 0.78, gaugeTo: 0.92 },
+  { key: 'normal', label: 'Poids habituel', range: '18,5 à 24,9', gaugeFrom: 0.16, gaugeTo: 0.42 },
+  { key: 'surpoids', label: 'Surpoids', range: '25 à 29,9', gaugeFrom: 0.42, gaugeTo: 0.62 },
+  { key: 'obesite1', label: 'Obésité modérée', range: '30 à 34,9', gaugeFrom: 0.62, gaugeTo: 0.78 },
+  { key: 'obesite2', label: 'Obésité sévère', range: '35 à 39,9', gaugeFrom: 0.78, gaugeTo: 0.92 },
   { key: 'obesite3', label: 'Obésité morbide', range: '≥ 40', gaugeFrom: 0.92, gaugeTo: 1 },
 ];
 
 export interface BmiResult {
   value: number;
   category: BmiCategory;
-  /** Position 0–1 à placer sur la jauge (clampée). */
+  /** Position de 0 à 1 à placer sur la jauge (clampée). */
   gaugePosition: number;
 }
 
