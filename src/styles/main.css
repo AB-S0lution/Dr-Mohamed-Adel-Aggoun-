@@ -41,12 +41,16 @@
   --ink-muted: #5c6b61;
   --line: rgba(19, 32, 25, 0.12);
   --line-strong: rgba(19, 32, 25, 0.22);
-  --accent: var(--c-terracotta-500);
+  --accent: var(--c-terracotta-600);
   --accent-ink: #ffffff;
   --accent-soft: var(--c-terracotta-100);
   --focus-ring: var(--c-terracotta-600);
   --surface-pine: var(--c-pine-900);
   --surface-pine-ink: var(--c-sand-50);
+  --surface-pine-ink-85: rgba(251, 246, 234, 0.85);
+  --surface-pine-ink-72: rgba(251, 246, 234, 0.72);
+  --surface-pine-ink-35: rgba(251, 246, 234, 0.35);
+  --header-bg: rgba(251, 246, 234, 0.72);
 
   /* Shape system — one scale, used consistently */
   --radius-pill: 999px;
@@ -80,6 +84,10 @@
     --focus-ring: var(--c-terracotta-400);
     --surface-pine: #0f1813;
     --surface-pine-ink: #efe7d4;
+    --surface-pine-ink-85: rgba(239, 231, 212, 0.85);
+    --surface-pine-ink-72: rgba(239, 231, 212, 0.72);
+    --surface-pine-ink-35: rgba(239, 231, 212, 0.35);
+    --header-bg: rgba(20, 31, 26, 0.72);
   }
 }
 
@@ -99,6 +107,10 @@
   --focus-ring: var(--c-terracotta-400);
   --surface-pine: #0f1813;
   --surface-pine-ink: #efe7d4;
+  --surface-pine-ink-85: rgba(239, 231, 212, 0.85);
+  --surface-pine-ink-72: rgba(239, 231, 212, 0.72);
+  --surface-pine-ink-35: rgba(239, 231, 212, 0.35);
+  --header-bg: rgba(20, 31, 26, 0.72);
 }
 
 * {
@@ -206,7 +218,7 @@ button, a, [role="button"] {
   gap: 1rem;
   padding: 0.55rem 0.6rem 0.55rem 1.1rem;
   border-radius: var(--radius-pill);
-  background: color-mix(in oklab, var(--bg) 72%, transparent);
+  background: var(--header-bg);
   border: 1px solid var(--line);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
@@ -387,11 +399,12 @@ button, a, [role="button"] {
 
 .btn-ghost {
   background: transparent;
-  color: var(--ink);
+  color: inherit;
   border: 1.5px solid var(--line-strong);
 }
 @media (hover: hover) and (pointer: fine) {
   .btn-ghost:hover { background: var(--bg-sunken); }
+  .on-pine .btn-ghost:hover { background: var(--c-pine-800); }
 }
 
 .btn-pine {
