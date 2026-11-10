@@ -4,8 +4,25 @@ import { SITE } from '../data/site';
 import { getTodayHours, isOpenNow } from '../data/hours';
 import { SPECIALTIES } from '../data/specialties';
 import { icon } from '../lib/icons';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 bootCommon();
+
+gsap.registerPlugin(ScrollTrigger);
+
+function initHeroParallax() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const curve = document.querySelector<SVGElement>('.hero-curve');
+  if (reduceMotion || !curve) return;
+  gsap.to(curve, {
+    yPercent: 14,
+    scale: 1.06,
+    ease: 'none',
+    scrollTrigger: { trigger: curve, start: 'top bottom', end: 'bottom top', scrub: 0.6 },
+  });
+}
+initHeroParallax();
 
 function renderQuickInfo() {
   const el = document.getElementById('quick-info-grid');

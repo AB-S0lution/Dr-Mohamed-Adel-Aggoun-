@@ -66,30 +66,9 @@
   --dur-reveal: 700ms;
 }
 
-:root[data-theme="dark"],
-:root:not([data-theme="light"]) {
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-    --bg: #1a1714;
-    --bg-raised: #221e1a;
-    --bg-sunken: #15120f;
-    --ink: #efe7d4;
-    --ink-soft: #cfc7b2;
-    --ink-muted: #a39b8d;
-    --line: rgba(239, 231, 212, 0.14);
-    --line-strong: rgba(239, 231, 212, 0.26);
-    --accent: var(--c-terracotta-400);
-    --accent-ink: #1b140f;
-    --accent-soft: rgba(209, 124, 88, 0.18);
-    --focus-ring: var(--c-terracotta-400);
-    --surface-pine: #15120f;
-    --surface-pine-ink: #efe7d4;
-    --surface-pine-ink-85: rgba(239, 231, 212, 0.85);
-    --surface-pine-ink-72: rgba(239, 231, 212, 0.72);
-    --surface-pine-ink-35: rgba(239, 231, 212, 0.35);
-    --header-bg: rgba(26, 23, 20, 0.72);
-  }
-}
+/* Light is the unconditional default — this site does not auto-follow the
+   OS/browser prefers-color-scheme. Dark is available only through the
+   explicit toggle below, which sets data-theme="dark". */
 
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -644,3 +623,37 @@ details[open] .specialty-chevron { transform: rotate(180deg); }
 .skip-link:focus { top: 1rem; }
 
 .noscroll { overflow: hidden; }
+
+/* ---------- Marquee ---------- */
+
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: var(--bg-raised);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  padding-block: 1.1rem;
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.marquee__item svg { color: var(--accent); flex: none; }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .marquee { overflow-x: auto; }
+}

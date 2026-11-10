@@ -26,7 +26,9 @@ export function applyTheme(theme: Theme) {
 export function currentTheme(): Theme {
   const attr = document.documentElement.getAttribute('data-theme');
   if (attr === 'light' || attr === 'dark') return attr;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  // Light is the default regardless of OS preference — dark is opt-in only,
+  // via the toggle below.
+  return 'light';
 }
 
 export function initThemeToggle(button: HTMLElement | null) {
