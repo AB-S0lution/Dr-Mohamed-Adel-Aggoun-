@@ -2,9 +2,11 @@
 
 /* ============================================================
    Cabinet Saha — Dr Mohamed Adel Aggoun
-   Design tokens — concept "Équilibre" (PLAN.md §7)
-   Palette : pin profond / sable chaud / terre cuite.
+   Design tokens — direction "Clinique bleu & blanc".
+   Palette : ardoise profonde / blanc froid / bleu clinique.
    Thème clair et sombre construits sur le même jeu de jetons.
+   Les noms de variables (pine/sand/terracotta) sont conservés pour ne
+   pas casser les usages existants ; seules les valeurs ont changé.
    ============================================================ */
 
 @theme {
@@ -18,19 +20,19 @@
   /* ds-allow-hardcode: this block IS the primitive token layer — hex values
      are defined here once and consumed everywhere else via var(--token). */
   /* Primitives — palette claire */
-  --c-pine-950: #1c1915;
-  --c-pine-900: #262220;
-  --c-pine-800: #3c352e;
-  --c-pine-700: #534a3f;
-  --c-pine-600: #6c6052;
-  --c-sand-50: #fbf6ea;
-  --c-sand-100: #f6ecd7;
-  --c-sand-200: #efe0c0;
-  --c-sand-300: #e3cf9f;
-  --c-terracotta-600: #b5572f;
-  --c-terracotta-500: #c1623d;
-  --c-terracotta-400: #d17c58;
-  --c-terracotta-100: #f3ddcf;
+  --c-pine-950: #0f172a;
+  --c-pine-900: #1e293b;
+  --c-pine-800: #334155;
+  --c-pine-700: #475569;
+  --c-pine-600: #64748b;
+  --c-sand-50: #f5f8fc;
+  --c-sand-100: #e8eef6;
+  --c-sand-200: #d9e3ef;
+  --c-sand-300: #c2d2e3;
+  --c-terracotta-600: #2563eb;
+  --c-terracotta-500: #3b82f6;
+  --c-terracotta-400: #60a5fa;
+  --c-terracotta-100: #dbeafe;
 
   /* Semantic */
   --bg: var(--c-sand-50);
@@ -38,19 +40,19 @@
   --bg-sunken: var(--c-sand-100);
   --ink: var(--c-pine-950);
   --ink-soft: var(--c-pine-800);
-  --ink-muted: #6b6456;
-  --line: rgba(28, 25, 21, 0.12);
-  --line-strong: rgba(28, 25, 21, 0.22);
+  --ink-muted: #5b6472;
+  --line: rgba(15, 23, 42, 0.1);
+  --line-strong: rgba(15, 23, 42, 0.2);
   --accent: var(--c-terracotta-600);
   --accent-ink: #ffffff;
   --accent-soft: var(--c-terracotta-100);
   --focus-ring: var(--c-terracotta-600);
   --surface-pine: var(--c-pine-900);
   --surface-pine-ink: var(--c-sand-50);
-  --surface-pine-ink-85: rgba(251, 246, 234, 0.85);
-  --surface-pine-ink-72: rgba(251, 246, 234, 0.72);
-  --surface-pine-ink-35: rgba(251, 246, 234, 0.35);
-  --header-bg: rgba(251, 246, 234, 0.72);
+  --surface-pine-ink-85: rgba(245, 248, 252, 0.85);
+  --surface-pine-ink-72: rgba(245, 248, 252, 0.72);
+  --surface-pine-ink-35: rgba(245, 248, 252, 0.35);
+  --header-bg: var(--bg-raised);
 
   /* Shape system — one scale, used consistently */
   --radius-pill: 999px;
@@ -72,24 +74,23 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #1a1714;
-  --bg-raised: #221e1a;
-  --bg-sunken: #15120f;
-  --ink: #efe7d4;
-  --ink-soft: #cfc7b2;
-  --ink-muted: #a39b8d;
-  --line: rgba(239, 231, 212, 0.14);
-  --line-strong: rgba(239, 231, 212, 0.26);
+  --bg: #0b1220;
+  --bg-raised: #121a2c;
+  --bg-sunken: #070c16;
+  --ink: #e9eef6;
+  --ink-soft: #c5cedb;
+  --ink-muted: #8b96a8;
+  --line: rgba(233, 238, 246, 0.12);
+  --line-strong: rgba(233, 238, 246, 0.22);
   --accent: var(--c-terracotta-400);
-  --accent-ink: #1b140f;
-  --accent-soft: rgba(209, 124, 88, 0.18);
+  --accent-ink: #0b1220;
+  --accent-soft: rgba(96, 165, 250, 0.18);
   --focus-ring: var(--c-terracotta-400);
-  --surface-pine: #15120f;
-  --surface-pine-ink: #efe7d4;
-  --surface-pine-ink-85: rgba(239, 231, 212, 0.85);
-  --surface-pine-ink-72: rgba(239, 231, 212, 0.72);
-  --surface-pine-ink-35: rgba(239, 231, 212, 0.35);
-  --header-bg: rgba(26, 23, 20, 0.72);
+  --surface-pine: #060a14;
+  --surface-pine-ink: #e9eef6;
+  --surface-pine-ink-85: rgba(233, 238, 246, 0.85);
+  --surface-pine-ink-72: rgba(233, 238, 246, 0.72);
+  --surface-pine-ink-35: rgba(233, 238, 246, 0.35);
 }
 
 * {
@@ -187,7 +188,14 @@ button, a, [role="button"] {
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 0.85rem 0;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow 300ms var(--ease-out), border-color 300ms var(--ease-out);
+}
+
+.site-header[data-scrolled="true"] {
+  box-shadow: 0 8px 24px -16px rgba(15, 23, 42, 0.18);
+  border-color: var(--line-strong);
 }
 
 .site-header__bar {
@@ -195,26 +203,7 @@ button, a, [role="button"] {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.55rem 0.6rem 0.55rem 1.1rem;
-  border-radius: var(--radius-pill);
-  background: var(--header-bg);
-  border: 1px solid var(--line);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  transition: background 300ms var(--ease-out), box-shadow 300ms var(--ease-out), border-color 300ms var(--ease-out);
-}
-
-.site-header__bar[data-scrolled="true"] {
-  box-shadow: 0 10px 34px -16px rgba(19, 32, 25, 0.28);
-  border-color: var(--line-strong);
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .site-header__bar {
-    background: var(--bg-raised);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
+  padding: 0.85rem 0;
 }
 
 .brand {
@@ -425,9 +414,29 @@ button, a, [role="button"] {
   background: var(--accent-soft);
   color: var(--c-terracotta-600);
 }
-:root[data-theme="dark"] .chip,
-:root:not([data-theme="light"]) .chip {
-  @media (prefers-color-scheme: dark) { color: var(--c-terracotta-400); }
+:root[data-theme="dark"] .chip {
+  color: var(--c-terracotta-400);
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.95rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line-strong);
+  transition: background var(--dur-ui) var(--ease-out), border-color var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .filter-chip:hover { background: var(--bg-sunken); }
+}
+.filter-chip[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ---------- Reveal on scroll ---------- */
@@ -483,12 +492,15 @@ button, a, [role="button"] {
 .footer-grid {
   display: grid;
   gap: 2.75rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
 }
+/* minmax(0, 1fr): pre-existing 2px horizontal-scroll bug at 320px fixed
+   here (same root cause as .md-2col below — a 1fr track won't shrink below
+   its content's min-content size without this). */
 .footer-cols {
   display: grid;
   gap: 2.5rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 @media (min-width: 720px) {
   .footer-grid { grid-template-columns: 1.1fr 1.4fr 1fr; gap: 3rem; }
@@ -507,6 +519,17 @@ button, a, [role="button"] {
   opacity: 0.86;
 }
 .site-footer a:hover { opacity: 1; }
+/* Pre-existing 320px overflow fix: the contact list's <a> is a flex row
+   (icon + text) with no wrap opportunity in a bare address like an email —
+   a flex item's automatic min-width is its content's min-content size,
+   and a string with no spaces (an e-mail address) has nothing to break on
+   by default, so it forced the whole footer (and page) 27px past the
+   viewport at 320px. min-width: 0 lets the flex item shrink; overflow-wrap
+   gives the text somewhere to break if it still doesn't fit. */
+.footer-cols li a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 
 /* ---------- Accordion (FAQ) ---------- */
 
@@ -575,9 +598,14 @@ button, a, [role="button"] {
   max-width: 68ch;
 }
 
-.md-2col { grid-template-columns: 1fr; }
+/* minmax(0, 1fr) rather than 1fr: a grid track otherwise refuses to shrink
+   below the min-content size of its widest descendant (e.g. a horizontally
+   scrollable row of chips), which pushes the whole page into horizontal
+   scroll on narrow screens. This keeps every existing layout identical and
+   only changes behaviour for content that would otherwise overflow. */
+.md-2col { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 768px) {
-  .md-2col { grid-template-columns: 1fr 1fr; }
+  .md-2col { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 
 /* Responsive content grids — kept here (not inline styles) so these
@@ -656,4 +684,168 @@ details[open] .specialty-chevron { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) {
   .marquee__track { animation: none; }
   .marquee { overflow-x: auto; }
+}
+
+/* ---------- Specialty cards (spécialités, avec jalon décoratif) ---------- */
+
+.specialty-card {
+  transition: border-color var(--dur-ui) var(--ease-out), transform var(--dur-ui) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .specialty-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+}
+.card-motif { transition: opacity var(--dur-ui) var(--ease-out); }
+
+/* ---------- Calculateur d'IMC ---------- */
+
+.bmi-gauge {
+  position: relative;
+  margin-top: 1rem;
+}
+.bmi-gauge__bands {
+  display: flex;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.bmi-gauge__marker {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 14px;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  border: 2px solid var(--bg-raised);
+  transition: transform 0.5s var(--ease-out);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bmi-gauge__marker { transition: none; }
+}
+
+/* ---------- Questionnaire de pré-consultation (wizard) ---------- */
+
+.intake-option, .intake-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-field);
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: border-color var(--dur-ui) var(--ease-out), background var(--dur-ui) var(--ease-out);
+}
+.intake-pill { flex: 1; justify-content: center; }
+@media (hover: hover) and (pointer: fine) {
+  .intake-option:hover, .intake-pill:hover { border-color: var(--accent); background: var(--accent-soft); }
+}
+.intake-option:has(input:checked), .intake-pill:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+.intake-option input, .intake-pill input { accent-color: var(--accent); }
+
+.wizard-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.3;
+  transition: opacity var(--dur-ui) var(--ease-out);
+}
+.wizard-dot[data-active="true"] { opacity: 1; }
+
+/* ---------- Sélecteur de date / créneau (contact) ---------- */
+
+.day-track, .slot-track {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+  scrollbar-width: thin;
+  min-width: 0;
+}
+.day-chip {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 3.4rem;
+  padding: 0.6rem 0.4rem;
+  border-radius: var(--radius-field);
+  border: 1px solid var(--line-strong);
+  font-size: 0.78rem;
+  transition: border-color var(--dur-ui) var(--ease-out), background var(--dur-ui) var(--ease-out), transform var(--dur-press) var(--ease-out);
+}
+.day-chip__dow { text-transform: uppercase; opacity: 0.7; font-size: 0.68rem; }
+.day-chip__num { font-family: var(--font-display); font-size: 1.05rem; }
+.day-chip__closed { font-size: 0.62rem; color: var(--ink-muted); }
+.day-chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.day-chip:disabled { opacity: 0.4; cursor: not-allowed; }
+.day-chip:active:not(:disabled) { transform: scale(0.96); }
+@media (hover: hover) and (pointer: fine) {
+  .day-chip:not(:disabled):hover { border-color: var(--accent); }
+}
+
+.slot-chip {
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  font-size: 0.85rem;
+  transition: border-color var(--dur-ui) var(--ease-out), background var(--dur-ui) var(--ease-out), transform var(--dur-press) var(--ease-out);
+}
+.slot-chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.slot-chip:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) {
+  .slot-chip:hover { border-color: var(--accent); }
+}
+
+/* ---------- FAQ : recherche et surlignage ---------- */
+
+.faq-search {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--bg-raised);
+  color: var(--ink);
+}
+.faq-search:focus-visible { outline: 2.5px solid var(--focus-ring); outline-offset: 2px; }
+[data-faq-hidden="true"] {
+  display: none;
+}
+.accordion-trigger {
+  transition: color var(--dur-ui) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .accordion-trigger:hover { color: var(--accent); }
+}
+
+/* ---------- Espace patient (aperçu démonstration) ---------- */
+
+.patient-space-preview {
+  position: relative;
+  overflow: hidden;
+}
+.patient-space-preview::after {
+  content: "Démonstration";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-chip);
+  background: var(--accent-soft);
+  color: var(--c-terracotta-600);
+}
+.patient-space-preview fieldset {
+  pointer-events: none;
+  opacity: 0.55;
 }

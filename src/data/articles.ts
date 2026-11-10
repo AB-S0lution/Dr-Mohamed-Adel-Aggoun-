@@ -185,6 +185,108 @@ export const ARTICLES: Article[] = [
       'Il n’existe pas de solution unique : activité physique régulière, sommeil suffisant, moments de détente identifiés et, si besoin, un accompagnement spécifique contribuent à limiter cet impact. En consultation, le contexte de vie fait partie des éléments pris en compte, pas seulement les chiffres.',
     ],
   },
+  {
+    slug: 'insulinotherapie-type-2',
+    title: 'Diabète de type 2 : pourquoi l’insuline peut devenir nécessaire',
+    excerpt:
+      'Passer à l’insuline n’est pas un échec personnel. C’est une étape du traitement, parfois nécessaire quand les autres options ne suffisent plus.',
+    category: 'Diabète',
+    readTime: 6,
+    date: '2026-03-15',
+    body: [
+      'Le diabète de type 2 évolue dans le temps : le pancréas peut progressivement produire moins d’insuline, même quand l’alimentation et l’activité physique restent adaptées. Dans ce cas, les comprimés seuls ne suffisent plus toujours à maintenir un bon équilibre glycémique.',
+      'Beaucoup de patients associent l’insuline à une aggravation ou à un échec personnel. Ce n’est pas le cas : il s’agit d’une évolution naturelle de la maladie chez une partie des personnes diabétiques, pas d’une punition pour ne pas avoir assez fait d’efforts.',
+      'Le passage à l’insuline se prépare : apprentissage du geste d’injection, adaptation des doses selon les repas et l’activité, reconnaissance des hypoglycémies. Cet apprentissage se fait progressivement, avec un suivi rapproché au début.',
+      'Un schéma insulinique n’est jamais figé : il est réévalué et ajusté régulièrement selon les résultats de la glycémie, le mode de vie et les éventuels effets ressentis.',
+    ],
+  },
+  {
+    slug: 'thyroide-grossesse-depistage',
+    title: 'Thyroïde et grossesse : pourquoi un dépistage précoce est utile',
+    excerpt:
+      'Les besoins de la thyroïde augmentent pendant la grossesse. Un déséquilibre non repéré peut avoir des conséquences, d’où l’intérêt d’un dépistage précoce.',
+    category: 'Thyroïde',
+    readTime: 5,
+    date: '2026-03-02',
+    body: [
+      'Pendant la grossesse, les besoins en hormones thyroïdiennes augmentent, en particulier au premier trimestre, pour accompagner le développement du bébé. La thyroïde de la future mère doit s’adapter rapidement à cette demande accrue.',
+      'Une hypothyroïdie ou, plus rarement, une hyperthyroïdie non repérée pendant la grossesse peut avoir des répercussions sur son déroulement. C’est pourquoi un dosage de la TSH est souvent proposé tôt, en particulier en cas d’antécédent personnel ou familial de maladie thyroïdienne.',
+      'Les femmes déjà suivies pour un trouble thyroïdien avant la grossesse ont généralement besoin d’un ajustement de dose dès que la grossesse est confirmée, puis d’un suivi biologique plus rapproché que d’habitude pendant les neuf mois.',
+      'Après l’accouchement, les besoins reviennent progressivement à la normale : un nouveau contrôle biologique permet d’adapter le traitement à cette nouvelle étape.',
+    ],
+  },
+  {
+    slug: 'vitamine-d-metabolisme',
+    title: 'Vitamine D et métabolisme : un rôle qui va au-delà des os',
+    excerpt:
+      'Connue pour les os, la vitamine D intervient aussi dans la régulation du métabolisme et de l’immunité. Un déficit est fréquent, surtout l’hiver.',
+    category: 'Nutrition',
+    readTime: 4,
+    date: '2026-02-20',
+    body: [
+      'La vitamine D est surtout connue pour son rôle dans la solidité des os, mais elle intervient aussi dans la régulation de l’immunité et semble jouer un rôle dans la sensibilité à l’insuline, bien que ce dernier lien reste étudié.',
+      'La principale source de vitamine D est la synthèse cutanée sous l’effet du soleil, et non l’alimentation seule. Une exposition solaire limitée, une peau très couverte ou un hiver prolongé peuvent favoriser un déficit, fréquent dans la population générale.',
+      'Un déficit en vitamine D se traduit rarement par des symptômes nets : fatigue diffuse ou douleurs musculaires peuvent exister, mais le plus souvent, c’est un dosage sanguin qui le révèle. Une supplémentation, quand elle est utile, se fait selon un schéma adapté à chaque situation plutôt qu’en automédication prolongée.',
+    ],
+  },
+  {
+    slug: 'tension-arterielle-diabete',
+    title: 'Tension artérielle et diabète : une surveillance qui va de pair',
+    excerpt:
+      'Une tension élevée aggrave le risque cardiovasculaire déjà présent avec le diabète. Elle se mesure et se traite avec la même rigueur que la glycémie.',
+    category: 'Mode de vie',
+    readTime: 5,
+    date: '2026-02-08',
+    body: [
+      'Le diabète et l’hypertension artérielle coexistent fréquemment, et leur association multiplie le risque sur le cœur, les reins et les artères par rapport à chacun pris séparément. C’est pourquoi la tension artérielle est mesurée à chaque consultation de suivi du diabète, pas seulement en cas de symptôme.',
+      'Une tension élevée ne donne le plus souvent aucun signe ressenti : ni mal de tête systématique, ni vertige fiable pour la détecter. Seule une mesure régulière, au cabinet ou à domicile avec un appareil validé, permet de la repérer.',
+      'Réduire le sel ajouté, maintenir une activité physique régulière et surveiller le poids contribuent à la fois à la tension et à la glycémie. Un traitement médicamenteux est ajouté quand ces mesures ne suffisent pas, avec un objectif de tension défini individuellement.',
+    ],
+  },
+  {
+    slug: 'diabete-voyage-organisation',
+    title: 'Diabète et voyage : ce qu’il faut préparer avant de partir',
+    excerpt:
+      'Changement de climat, de fuseau horaire, de repas : voyager avec un diabète demande une préparation simple mais utile.',
+    category: 'Mode de vie',
+    readTime: 5,
+    date: '2026-01-26',
+    body: [
+      'Voyager avec un diabète ne pose généralement pas de problème particulier, à condition d’anticiper quelques points : quantité suffisante de traitement et de matériel d’autosurveillance pour toute la durée, plus une marge en cas de retard ou d’imprévu.',
+      'L’insuline doit être transportée à température raisonnable, à l’abri de la chaleur excessive ou du gel, idéalement en bagage à main lors d’un trajet en avion, avec une trousse isotherme simple si le trajet est long.',
+      'Un changement de fuseau horaire important peut nécessiter d’ajuster les horaires d’injection ou de prise de comprimés ; ce point mérite d’être anticipé en consultation avant un long voyage plutôt que décidé sur place.',
+      'Une ordonnance récente et, si possible, un courrier médical mentionnant le traitement en cours facilitent les démarches en cas de contrôle ou de besoin de renouvellement sur place.',
+    ],
+  },
+  {
+    slug: 'resistance-insuline-comprendre',
+    title: 'Comprendre la résistance à l’insuline, en amont du diabète',
+    excerpt:
+      'Avant l’apparition du diabète de type 2, les cellules peuvent déjà moins bien répondre à l’insuline. Un mécanisme clé, souvent silencieux.',
+    category: 'Diabète',
+    readTime: 6,
+    date: '2026-01-12',
+    body: [
+      'L’insuline permet au glucose du sang d’entrer dans les cellules pour y être utilisé comme énergie. Quand les cellules répondent moins bien à ce signal, on parle de résistance à l’insuline : le pancréas compense en produisant plus d’insuline, parfois pendant des années, avant que la glycémie elle-même ne s’élève.',
+      'La résistance à l’insuline est favorisée par l’excès de graisse abdominale, la sédentarité et certains facteurs génétiques. Elle précède souvent de plusieurs années le diagnostic de diabète de type 2, sans donner de symptôme particulier.',
+      'Un tour de taille élevé, une tension limite ou un bilan lipidique perturbé peuvent être des indices évocateurs, même avec une glycémie encore normale. C’est tout l’intérêt d’un dépistage régulier plutôt que d’attendre l’apparition de symptômes.',
+      'Activité physique régulière et perte de poids modeste, quand elle est pertinente, restent les leviers les plus efficaces pour améliorer la sensibilité à l’insuline à ce stade précoce.',
+    ],
+  },
+  {
+    slug: 'enfants-sucre-habitudes',
+    title: 'Enfants et sucre : construire de bonnes habitudes sans interdire',
+    excerpt:
+      'Plutôt que l’interdiction stricte, une approche progressive aide les enfants à construire une relation saine avec les aliments sucrés.',
+    category: 'Pédiatrie',
+    readTime: 5,
+    date: '2025-12-30',
+    body: [
+      'Interdire totalement le sucre chez un enfant crée souvent l’effet inverse : une envie renforcée et, parfois, des prises cachées. Une approche plus progressive, centrée sur la régularité des repas et la modération, donne généralement de meilleurs résultats sur la durée.',
+      'Associer systématiquement un aliment sucré à une récompense ou, au contraire, à une punition renforce son pouvoir émotionnel. Le présenter simplement comme un aliment parmi d’autres, à certains moments plutôt qu’à volonté, aide à désamorcer cette charge.',
+      'Pour un enfant suivi pour un surpoids ou un diabète, ces principes restent valables : l’objectif est une alimentation globalement équilibrée et des repères stables, pas une liste d’aliments strictement interdits qui isole l’enfant de ses camarades.',
+    ],
+  },
 ];
 
 export function findArticle(slug: string): Article | undefined {

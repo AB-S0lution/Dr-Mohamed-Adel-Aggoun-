@@ -9,6 +9,9 @@ export interface ContactFormValues {
   phone: string;
   reason: string;
   message: string;
+  /** Date souhaitée, à titre indicatif — jamais une réservation confirmée. */
+  preferredDateLabel?: string;
+  preferredSlotLabel?: string;
 }
 
 function buildMessage(v: ContactFormValues): string {
@@ -18,16 +21,32 @@ function buildMessage(v: ContactFormValues): string {
     `Téléphone : ${v.phone || '(non renseigné)'}`,
     `Motif : ${v.reason || '(non renseigné)'}`,
   ];
+  if (v.preferredDateLabel) {
+    lines.push(`Date souhaitée (à confirmer) : ${v.preferredDateLabel}`);
+  }
+  if (v.preferredSlotLabel) {
+    lines.push(`Créneau souhaité (à confirmer) : ${v.preferredSlotLabel}`);
+  }
   if (v.message.trim()) lines.push('', v.message.trim());
+  lines.push('', '(Ce message ne constitue pas une réservation confirmée — le cabinet recontacte pour fixer l’horaire définitif.)');
   return lines.join('\n');
 }
 
 export function buildWhatsappUrl(v: ContactFormValues): string {
-  return `${SITE.whatsappHref}?text=${encodeURIComponent(buildMessage(v))}`;
+  return buildWhatsappUrlRaw(buildMessage(v));
 }
 
 export function buildMailtoUrl(v: ContactFormValues): string {
-  const subject = encodeURIComponent(`Demande de rendez-vous — ${v.name || 'Patient'}`);
-  const body = encodeURIComponent(buildMessage(v));
-  return `${SITE.emailHref}?subject=${subject}&body=${body}`;
+  const subject = `Demande de rendez-vous — ${v.name || 'Patient'}`;
+  return buildMailtoUrlRaw(subject, buildMessage(v));
+}
+
+/** Construit un lien wa.me à partir d'un texte déjà composé (questionnaire, etc.). */
+export function buildWhatsappUrlRaw(message: string): string {
+  return `${SITE.whatsappHref}?text=${encodeURIComponent(message)}`;
+}
+
+/** Construit un lien mailto: à partir d'un sujet et d'un texte déjà composés. */
+export function buildMailtoUrlRaw(subject: string, message: string): string {
+  return `${SITE.emailHref}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 }

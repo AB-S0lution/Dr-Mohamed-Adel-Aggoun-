@@ -6,8 +6,8 @@
   <title>Questions fréquentes, rendez-vous et consultation, Cabinet Saha</title>
   <meta name="description" content="Réponses aux questions pratiques : prise de rendez-vous, documents à apporter, jeûne, enfants, grossesse, au Cabinet Saha à Tazoult." />
   <link rel="canonical" href="https://ab-s0lution.github.io/Dr-Mohamed-Adel-Aggoun-/faq.html" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf6ea" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1714" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f8fc" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
 
   <header class="site-header">
     <div class="shell">
-      <div class="site-header__bar" data-header-bar>
+      <div class="site-header__bar">
         <a href="./" class="brand" data-nav-link aria-label="Cabinet Saha, accueil">
           <svg class="brand__mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="17" cy="17" r="15.5" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
@@ -84,12 +84,21 @@
   </div>
 
   <main id="contenu">
-    <section class="shell" style="padding-top:3rem;padding-bottom:5rem;">
+    <section class="shell" style="padding-top:3rem;padding-bottom:5rem;position:relative;overflow:hidden;">
+      <!-- ds-allow-hardcode: one-off decorative illustration placement, not a spacing-scale value -->
+      <div data-parallax aria-hidden="true" style="position:absolute;top:-1.5rem;right:-3rem;width:200px;height:160px;opacity:0.45;z-index:-1;"></div>
       <p class="chip">FAQ</p>
       <h1 class="font-display" style="font-size:clamp(2rem,4.5vw,3rem);margin-top:0.9rem;max-width:30ch;">Questions fréquentes</h1>
       <p class="text-muted container-prose" style="margin-top:1rem;">Les réponses les plus utiles avant une première visite. Pour toute question spécifique à votre situation, contactez directement le cabinet.</p>
 
-      <div id="faq-groups" style="margin-top:2.5rem;display:flex;flex-direction:column;gap:2.5rem;max-width:44rem;"></div>
+      <label style="display:block;margin-top:2rem;max-width:28rem;">
+        <span class="text-muted" style="font-size:0.82rem;font-weight:600;display:block;margin-bottom:0.5rem;">Rechercher une question</span>
+        <input id="faq-search" class="faq-search" type="search" placeholder="Ex. jeûne, enfant, CNAS, horaires…" autocomplete="off" />
+      </label>
+      <p id="faq-search-count" class="text-muted" style="margin-top:0.75rem;font-size:0.85rem;" aria-live="polite"></p>
+
+      <div id="faq-groups" style="margin-top:1.5rem;display:flex;flex-direction:column;gap:2.5rem;max-width:44rem;"></div>
+      <p id="faq-empty" class="text-muted" style="display:none;margin-top:1.5rem;">Aucune question ne correspond à cette recherche. Essayez un autre mot, ou <a class="link-underline" href="contact.html">contactez directement le cabinet</a>.</p>
     </section>
   </main>
 

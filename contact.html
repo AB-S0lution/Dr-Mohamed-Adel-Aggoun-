@@ -6,8 +6,8 @@
   <title>Contact et demande de rendez-vous, Cabinet Saha</title>
   <meta name="description" content="Contactez le Cabinet Saha par téléphone, WhatsApp ou e-mail. Demande de rendez-vous sans réservation automatique, le cabinet vous recontacte." />
   <link rel="canonical" href="https://ab-s0lution.github.io/Dr-Mohamed-Adel-Aggoun-/contact.html" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf6ea" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1714" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f8fc" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
 
   <header class="site-header">
     <div class="shell">
-      <div class="site-header__bar" data-header-bar>
+      <div class="site-header__bar">
         <a href="./" class="brand" data-nav-link aria-label="Cabinet Saha, accueil">
           <svg class="brand__mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="17" cy="17" r="15.5" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
@@ -84,13 +84,15 @@
   </div>
 
   <main id="contenu">
-    <section class="shell" style="padding-top:3rem;">
+    <section class="shell" style="padding-top:3rem;position:relative;overflow:hidden;">
+      <!-- ds-allow-hardcode: one-off decorative illustration placement, not a spacing-scale value -->
+      <div data-parallax aria-hidden="true" style="position:absolute;top:-1.5rem;right:-3rem;width:200px;height:160px;opacity:0.45;z-index:-1;"></div>
       <p class="chip">Contact</p>
       <h1 class="font-display" style="font-size:clamp(2rem,4.5vw,3rem);margin-top:0.9rem;max-width:30ch;">Parlons de votre rendez-vous.</h1>
       <p class="text-muted container-prose" style="margin-top:1rem;">Ce formulaire ouvre un message prêt à envoyer par WhatsApp ou par e-mail. Il ne s’agit pas d’une réservation instantanée : le cabinet vous recontacte pour confirmer l’horaire.</p>
     </section>
 
-    <section class="shell" style="padding-top:2.5rem;padding-bottom:5rem;">
+    <section class="shell" style="padding-top:2.5rem;padding-bottom:3rem;">
       <div style="display:grid;gap:1.75rem;" class="md-2col">
         <form id="contact-form" class="card" data-reveal novalidate>
           <div style="display:flex;flex-direction:column;gap:1.1rem;">
@@ -106,9 +108,19 @@
               Motif de consultation
               <input type="text" name="reason" placeholder="Ex. suivi de diabète, bilan thyroïdien..." style="padding:0.75rem 0.9rem;border-radius:var(--radius-field);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);" />
             </label>
+
+            <div>
+              <span style="display:block;font-size:0.9rem;font-weight:600;margin-bottom:0.6rem;">Date souhaitée (à titre indicatif)</span>
+              <div id="appointment-scheduler">
+                <div class="day-track" data-day-track></div>
+                <div class="slot-track" data-slot-track style="margin-top:0.75rem;"></div>
+                <p data-scheduler-summary class="text-muted" style="margin-top:0.6rem;font-size:0.82rem;"></p>
+              </div>
+            </div>
+
             <label style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem;font-weight:600;">
               Message (optionnel)
-              <textarea name="message" rows="4" placeholder="Précisions utiles, disponibilités..." style="padding:0.75rem 0.9rem;border-radius:var(--radius-field);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);resize:vertical;"></textarea>
+              <textarea name="message" rows="3" placeholder="Précisions utiles, disponibilités..." style="padding:0.75rem 0.9rem;border-radius:var(--radius-field);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);resize:vertical;"></textarea>
             </label>
             <p id="form-error" role="alert" style="color:var(--c-terracotta-600);font-size:0.85rem;display:none;"></p>
             <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.25rem;">
@@ -118,7 +130,7 @@
               </button>
               <button class="btn btn-ghost" type="submit" data-send="mail">Envoyer par e-mail</button>
             </div>
-            <p class="text-muted" style="font-size:0.78rem;">En cliquant, votre application de messagerie ou de courrier s’ouvre avec un message pré-rempli. Rien n’est envoyé automatiquement par ce site.</p>
+            <p class="text-muted" style="font-size:0.78rem;">En cliquant, votre application de messagerie ou de courrier s’ouvre avec un message pré-rempli. Rien n’est envoyé automatiquement par ce site, et aucune date n’est réservée tant que le cabinet n’a pas confirmé.</p>
           </div>
         </form>
 
@@ -135,6 +147,24 @@
           <div class="card" data-reveal style="background:var(--bg-sunken);">
             <h2 style="font-family:var(--font-display);font-size:1.2rem;">Avant d’appeler</h2>
             <p class="text-muted" style="margin-top:0.75rem;font-size:0.9rem;">En cas d’urgence médicale, contactez les services d’urgence : ce cabinet assure uniquement des consultations programmées.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Questionnaire de pré-consultation : démonstration client uniquement, voir PLAN.md §4 -->
+    <section class="shell" style="padding-top:1rem;padding-bottom:5rem;">
+      <div class="card" data-reveal style="max-width:38rem;">
+        <p class="chip">Facultatif</p>
+        <h2 style="font-family:var(--font-display);font-size:1.3rem;margin-top:0.75rem;">Préparer votre venue</h2>
+        <p class="text-muted" style="margin-top:0.6rem;font-size:0.9rem;">Un court questionnaire pour préparer l’échange avec le cabinet. Ce n’est pas une consultation ni un diagnostic.</p>
+
+        <div id="intake-wizard" style="margin-top:1.5rem;">
+          <div data-intake-dots style="display:flex;gap:0.5rem;margin-bottom:1.25rem;"></div>
+          <div data-intake-panel style="min-height:11rem;"></div>
+          <div style="display:flex;justify-content:space-between;margin-top:1.25rem;">
+            <button type="button" class="btn btn-ghost" data-intake-prev hidden>Précédent</button>
+            <button type="button" class="btn btn-pine" data-intake-next style="margin-left:auto;">Suivant</button>
           </div>
         </div>
       </div>

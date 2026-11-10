@@ -6,8 +6,8 @@
   <title>Spécialités, diabète, thyroïde, obésité, Cabinet Saha, Dr Aggoun</title>
   <meta name="description" content="Motifs de consultation traités au Cabinet Saha : diabète, thyroïde, obésité, croissance, surrénales. Informations générales, sans prix ni promesse de résultat." />
   <link rel="canonical" href="https://ab-s0lution.github.io/Dr-Mohamed-Adel-Aggoun-/specialites.html" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf6ea" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1714" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f8fc" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
 
   <header class="site-header">
     <div class="shell">
-      <div class="site-header__bar" data-header-bar>
+      <div class="site-header__bar">
         <a href="./" class="brand" data-nav-link aria-label="Cabinet Saha, accueil">
           <svg class="brand__mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="17" cy="17" r="15.5" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
@@ -84,7 +84,9 @@
   </div>
 
   <main id="contenu">
-    <section class="shell" style="padding-top:3rem;">
+    <section class="shell" style="padding-top:3rem;position:relative;overflow:hidden;">
+      <!-- ds-allow-hardcode: one-off decorative illustration placement, not a spacing-scale value -->
+      <div data-parallax aria-hidden="true" style="position:absolute;top:-2rem;right:-3rem;width:220px;height:170px;opacity:0.5;z-index:-1;"></div>
       <p class="chip">Spécialités</p>
       <h1 class="font-display" style="font-size:clamp(2rem,4.5vw,3rem);margin-top:0.9rem;max-width:32ch;">Les motifs de consultation les plus fréquents.</h1>
       <p class="text-muted container-prose" style="margin-top:1rem;">Chaque fiche est informative et générale. Elle ne remplace pas une consultation : seul un échange individuel permet d’évaluer une situation précise.</p>
@@ -92,8 +94,51 @@
       <div id="specialty-filters" role="group" aria-label="Filtrer par catégorie" style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:2rem;"></div>
     </section>
 
-    <section class="shell" style="padding-top:2.5rem;padding-bottom:5rem;">
+    <section class="shell" style="padding-top:2.5rem;padding-bottom:3rem;">
       <div id="specialties-list" style="display:flex;flex-direction:column;gap:1rem;"></div>
+    </section>
+
+    <!-- Calculateur d'IMC : outil informatif, en lien direct avec le suivi du poids et du métabolisme -->
+    <section class="shell" style="padding-top:2rem;padding-bottom:6rem;">
+      <div data-reveal style="margin-bottom:1.75rem;max-width:40rem;">
+        <p class="chip">Outil informatif</p>
+        <h2 class="font-display" style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-top:0.9rem;">Calculateur d’IMC</h2>
+        <p class="text-muted" style="margin-top:0.6rem;">Un repère de corpulence utile pour préparer une discussion sur le poids ou le métabolisme.</p>
+      </div>
+
+      <div class="card" data-reveal style="max-width:34rem;">
+        <form id="bmi-form" novalidate style="display:grid;gap:1rem;" class="md-2col">
+          <label style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem;font-weight:600;">
+            Taille (cm)
+            <input name="height" type="number" step="0.1" min="80" max="230" inputmode="decimal" placeholder="170" style="padding:0.75rem 0.9rem;border-radius:var(--radius-field);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);" />
+          </label>
+          <label style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem;font-weight:600;">
+            Poids (kg)
+            <input name="weight" type="number" step="0.1" min="15" max="300" inputmode="decimal" placeholder="70" style="padding:0.75rem 0.9rem;border-radius:var(--radius-field);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);" />
+          </label>
+          <div style="grid-column:1/-1;">
+            <button class="btn btn-primary" type="submit">Calculer mon IMC</button>
+          </div>
+        </form>
+
+        <p id="bmi-error" role="alert" style="display:none;color:var(--c-terracotta-600);font-size:0.85rem;margin-top:0.85rem;"></p>
+
+        <div id="bmi-result-box" style="display:none;margin-top:1.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;">
+            <span style="display:flex;align-items:baseline;gap:0.5rem;">
+              <span id="bmi-value" style="font-family:var(--font-display);font-size:2.1rem;"></span>
+              <span class="text-muted" style="font-size:0.85rem;">kg/m²</span>
+            </span>
+            <span id="bmi-category" class="chip"></span>
+          </div>
+          <div class="bmi-gauge">
+            <div id="bmi-gauge-bands" class="bmi-gauge__bands"></div>
+            <div id="bmi-gauge-marker" class="bmi-gauge__marker" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <p class="text-muted" style="font-size:0.78rem;margin-top:1.4rem;">Ceci est informatif, cela ne remplace pas un avis médical. Le résultat ne tient pas compte de la masse musculaire, de la morphologie, de l’âge ni d’une éventuelle grossesse, seule une consultation permet une évaluation individuelle.</p>
+      </div>
     </section>
   </main>
 

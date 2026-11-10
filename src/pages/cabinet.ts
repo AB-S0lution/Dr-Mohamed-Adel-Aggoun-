@@ -2,8 +2,14 @@ import '../styles/main.css';
 import { bootCommon } from '../lib/boot';
 import { PROCESS_STEPS } from '../data/process';
 import { initProcessPin } from '../lib/process-pin';
+import { equilibriumScene } from '../lib/illustrations';
+import { initIllustrationParallax } from '../lib/motion-extra';
 
 bootCommon();
+
+const heroArt = document.querySelector('[data-illustration]');
+if (heroArt) heroArt.innerHTML = equilibriumScene();
+initIllustrationParallax('[data-illustration]');
 
 function renderProcessSteps() {
   const el = document.getElementById('process-steps');

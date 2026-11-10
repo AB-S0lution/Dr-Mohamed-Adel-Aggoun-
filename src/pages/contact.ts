@@ -1,8 +1,19 @@
 import '../styles/main.css';
 import { bootCommon } from '../lib/boot';
 import { buildMailtoUrl, buildWhatsappUrl } from '../lib/contact-links';
+import { initDatePicker } from '../lib/scheduler';
+import { initIntakeWizard } from '../lib/intake';
+import { auresSkyline } from '../lib/illustrations';
+import { initIllustrationParallax } from '../lib/motion-extra';
 
 bootCommon();
+
+const heroArt = document.querySelector('[data-parallax]');
+if (heroArt) heroArt.innerHTML = auresSkyline();
+initIllustrationParallax('[data-parallax]');
+
+const scheduler = initDatePicker('#appointment-scheduler');
+initIntakeWizard('#intake-wizard');
 
 const form = document.getElementById('contact-form') as HTMLFormElement | null;
 const errorEl = document.getElementById('form-error');
@@ -33,7 +44,15 @@ form?.addEventListener('submit', (e) => {
     return;
   }
 
-  const values = { name, phone, reason, message };
+  const { dateLabel, slotLabel } = scheduler.getLabels();
+  const values = {
+    name,
+    phone,
+    reason,
+    message,
+    preferredDateLabel: dateLabel ?? undefined,
+    preferredSlotLabel: slotLabel ?? undefined,
+  };
   const mode = submitter?.dataset.send === 'mail' ? 'mail' : 'whatsapp';
   const url = mode === 'mail' ? buildMailtoUrl(values) : buildWhatsappUrl(values);
   window.location.href = url;

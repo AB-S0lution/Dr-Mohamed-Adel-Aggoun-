@@ -11,7 +11,7 @@ import { renderFooter } from './footer';
 export function bootCommon() {
   renderFooter();
   initThemeToggle(document.getElementById('theme-toggle'));
-  initHeaderScrollState(document.querySelector('[data-header-bar]'));
+  initHeaderScrollState(document.querySelector('.site-header'));
   initMobileNav({
     toggle: document.getElementById('menu-toggle'),
     panelRoot: document.getElementById('mobile-nav'),

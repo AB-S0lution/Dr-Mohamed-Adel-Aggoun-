@@ -98,4 +98,28 @@ export const FAQ: FaqItem[] = [
     answer:
       'Non, aucune ordonnance n’est nécessaire pour une première consultation. En revanche, si un autre médecin vous a orienté, pensez à apporter son compte-rendu ou sa lettre, ainsi que vos derniers résultats d’analyses si vous en avez.',
   },
+  {
+    category: 'Pratique',
+    question: 'Le calculateur d’IMC du site remplace-t-il un avis médical ?',
+    answer:
+      'Non. Le calculateur d’IMC est un outil purement informatif, basé sur une formule générale. Il ne tient pas compte de votre situation individuelle (masse musculaire, morphologie, grossesse, âge) et ne remplace en aucun cas un avis médical personnalisé.',
+  },
+  {
+    category: 'Rendez-vous',
+    question: 'Le questionnaire de pré-consultation est-il transmis automatiquement au cabinet ?',
+    answer:
+      'Non. Ce questionnaire reste sur votre appareil pendant que vous le remplissez. À la fin, il prépare un message récapitulatif que vous choisissez vous-même d’envoyer, ou non, par WhatsApp ou par e-mail. Rien n’est transmis sans cette action de votre part.',
+  },
+  {
+    category: 'Pratique',
+    question: 'Qu’est-ce que l’« Espace patient » annoncé sur le site ?',
+    answer:
+      'Il s’agit d’un aperçu d’une fonctionnalité à venir, présentée uniquement à titre de démonstration. Elle n’est pas active aujourd’hui et aucune connexion ou donnée personnelle n’y est traitée pour le moment.',
+  },
+  {
+    category: 'Rendez-vous',
+    question: 'Puis-je choisir une date et un horaire précis directement sur le site ?',
+    answer:
+      'Vous pouvez indiquer une date et un créneau souhaités sur la page Contact, à titre indicatif. Il ne s’agit pas d’une réservation automatique : le cabinet vous recontacte pour confirmer si ce créneau est disponible, ou vous en proposer un autre.',
+  },
 ];
