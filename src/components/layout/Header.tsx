@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react';
-import { List, X, Phone, Sun, Moon } from '@phosphor-icons/react';
+import { List, X, Phone, CalendarCheck, Sun, Moon } from '@phosphor-icons/react';
 import { SITE } from '../../data/site';
 import { useTheme } from '../../hooks/useTheme';
 import { Logo } from '../ui/Logo';
@@ -118,10 +118,12 @@ export function Header({ overHero }: { overHero: boolean }) {
               {theme === 'dark' ? <Sun size={18} weight="light" /> : <Moon size={18} weight="light" />}
             </button>
 
-            <a href={SITE.mobileHref} className="btn btn-primary header-cta">
-              <Phone size={17} weight="light" />
+            {/* Mene a la page contact, pas vers tel: : un navigateur de bureau
+                renverrait le lien tel: a une application externe du systeme. */}
+            <Link to="/contact" className="btn btn-primary header-cta">
+              <CalendarCheck size={17} weight="light" />
               Prendre rendez-vous
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -165,9 +167,13 @@ export function Header({ overHero }: { overHero: boolean }) {
                 initial={reduce ? false : { opacity: 0, transform: 'translateY(1.4rem)' }}
                 animate={{ opacity: 1, transform: 'translateY(0rem)' }}
                 transition={{ duration: 0.5, delay: 0.06 + NAV.length * 0.055, ease: EASE }}
-                style={{ marginTop: '1.5rem' }}
+                style={{ marginTop: '1.5rem', display: 'grid', gap: '0.75rem' }}
               >
-                <a href={SITE.mobileHref} className="btn btn-primary" style={{ width: '100%' }}>
+                <Link to="/contact" className="btn btn-primary" style={{ width: '100%' }}>
+                  <CalendarCheck size={17} weight="light" />
+                  Prendre rendez-vous
+                </Link>
+                <a href={SITE.mobileHref} className="btn btn-secondary" style={{ width: '100%' }}>
                   <Phone size={17} weight="light" />
                   {SITE.mobileDisplay}
                 </a>

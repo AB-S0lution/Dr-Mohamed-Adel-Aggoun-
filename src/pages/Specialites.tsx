@@ -4,7 +4,10 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Phone } from '@phosphor-icons/react';
 import { SITE } from '../data/site';
 import { SPECIALTIES, type SpecialtyTag } from '../data/specialties';
+import { FOLLOW_UP, FOLLOW_UP_RHYTHMS } from '../data/followup';
+import stethoscope from '../assets/photos/stethoscope.jpg';
 import { Reveal } from '../components/motion/Reveal';
+import { ParallaxPhoto } from '../components/motion/Photo';
 import { Icon } from '../components/ui/Icon';
 import { Seo } from '../components/ui/Seo';
 
@@ -190,6 +193,68 @@ export default function Specialites() {
               })}
             </AnimatePresence>
           </ul>
+        </div>
+      </section>
+
+      {/* Le rythme du suivi : ce que la liste des motifs ne dit pas, à savoir
+          ce qui revient d'une consultation à l'autre pendant une année. */}
+      <section className="section" aria-labelledby="rythme-titre" style={{ background: 'var(--bg-sunken)' }}>
+        <div className="shell">
+          <div className="sec-head">
+            <div>
+              <Reveal y={12}>
+                <span className="eyebrow">Rythme du suivi</span>
+              </Reveal>
+              <Reveal delay={0.05}>
+                <h2 id="rythme-titre" className="display-lg" style={{ maxWidth: '18ch' }}>
+                  À quoi ressemble une <span className="accent-word">année</span>
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal delay={0.1}>
+              <p className="lede">
+                Ces repères illustrent la façon dont un suivi s'organise dans le temps. La fréquence
+                réelle est fixée en consultation, pour chaque personne, et peut être très différente.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="split split--narrow-first">
+            <Reveal y={16} className="photo-follow">
+              <ParallaxPhoto
+                src={stethoscope}
+                alt="Stéthoscope posé sur un drap clair, en noir et blanc"
+                graded
+                distance={40}
+                caption="Le suivi tient autant à la régularité des rendez-vous qu'au contenu de chacun."
+              />
+            </Reveal>
+
+            <div className="stack stack-lg">
+              {FOLLOW_UP_RHYTHMS.map((rhythm, g) => {
+                const rows = FOLLOW_UP.filter((f) => f.rhythm === rhythm);
+                return (
+                  <Reveal key={rhythm} y={14} delay={0.05 + g * 0.06}>
+                    <div>
+                      <p className="fact__label">
+                        {rhythm} <span className="tnum">({rows.length})</span>
+                      </p>
+                      <ul className="rhythm-list">
+                        {rows.map((f) => (
+                          <li key={f.label} className="rhythm-row">
+                            <span className="rhythm-row__label">{f.label}</span>
+                            <span className="text-muted" style={{ fontSize: '0.9rem', lineHeight: 1.6 }}>
+                              {f.why}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 

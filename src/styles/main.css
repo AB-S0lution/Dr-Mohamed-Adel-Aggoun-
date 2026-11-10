@@ -118,7 +118,10 @@
 
   --ink: var(--c-ink-900);
   --ink-soft: var(--c-ink-700);
-  --ink-muted: #5a7190;
+  /* Assombri depuis #5a7190 : cette teinte passait sur --bg (4,66:1) mais
+     tombait à 4,29:1 sur --bg-sunken, où du texte secondaire est posé.
+     #526784 tient 4,5:1 sur les trois surfaces claires. */
+  --ink-muted: #526784;
   --ink-invert: #eaf1f8;
   --ink-invert-soft: rgba(234, 241, 248, 0.74);
 
@@ -481,12 +484,15 @@ a { color: inherit; }
 
 /* Teinte commune : unifie des photos d'origines différentes en une
    seule langue visuelle, au lieu d'un patchwork de banque d'images. */
+/* Voile en alpha simple, sans mix-blend-mode : un mode de fusion force le
+   navigateur à refondre le calque avec son arrière-plan à chaque image dès
+   que la photo bouge (parallaxe), ce qui empêche toute mise en cache du
+   calque. Les opacités sont ajustées pour un rendu équivalent au multiply. */
 .photo--graded::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(190deg, rgba(11, 58, 99, 0.3), rgba(8, 19, 31, 0.5));
-  mix-blend-mode: multiply;
+  background: linear-gradient(190deg, rgba(11, 58, 99, 0.26), rgba(8, 19, 31, 0.44));
   pointer-events: none;
 }
 .photo__frame img, .photo img {
@@ -1136,6 +1142,86 @@ a { color: inherit; }
   transition: transform var(--d-ui) var(--ease-out);
 }
 
+/* Respiration visuelle de la FAQ : un bandeau large et bas, qui coupe la
+   page sans prendre la place d'une section. */
+.faq-break .photo__frame { aspect-ratio: 21 / 6; }
+
+/* ---------- Rythme du suivi ---------- */
+
+.rhythm-list {
+  margin-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+.rhythm-row {
+  display: grid;
+  gap: 0.3rem;
+  padding-block: 0.95rem;
+  border-bottom: 1px solid var(--line);
+}
+.rhythm-row__label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+/* ---------- Lexique ---------- */
+
+.lex-list { border-top: 1px solid var(--line); }
+.lex-row {
+  display: grid;
+  gap: 0.35rem 2rem;
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: clamp(1.1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+@media (min-width: 820px) {
+  .lex-row { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); }
+}
+.lex-row__term {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.lex-row__aka {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.lex-row__def {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ---------- Listes de préparation ---------- */
+
+.prep-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: clamp(1.25rem, 2.5vw, 1.9rem);
+  background: var(--bg-raised);
+}
+.prep-items {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+.prep-items li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+
 /* ---------- Deux colonnes générique ---------- */
 
 .split {
@@ -1491,6 +1577,9 @@ a { color: inherit; }
 @media (min-width: 940px) {
   .article-aside { position: sticky; top: calc(var(--header-h) + 1.5rem); }
   .faq-group-head { position: sticky; top: calc(var(--header-h) + 1.5rem); }
+  /* La photo accompagne la liste au lieu de laisser sa colonne vide sous
+     elle : la colonne de droite est nettement plus haute. */
+  .photo-follow { position: sticky; top: calc(var(--header-h) + 2rem); }
 }
 .aside-link {
   display: inline-flex;

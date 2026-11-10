@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { motion, useMotionTemplate, useReducedMotion, useScroll, useTransform } from 'motion/react';
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -82,6 +82,10 @@ export function ParallaxPhoto({
     offset: ['start end', 'end start'],
   });
   const y = useTransform(scrollYProgress, [0, 1], [-distance, distance]);
+  // Chaîne de transform complète plutôt que les raccourcis `y` / `scale` :
+  // ces raccourcis passent par le style calculé et ne sont pas accélérés
+  // matériellement, donc ils perdent des images quand la page travaille.
+  const transform = useMotionTemplate`translate3d(0, ${y}px, 0) scale(1.18)`;
 
   return (
     <figure ref={ref} className={`photo ${className}`}>
@@ -91,7 +95,7 @@ export function ParallaxPhoto({
           alt={alt}
           loading="lazy"
           decoding="async"
-          style={reduce ? undefined : { y, scale: 1.18 }}
+          style={reduce ? undefined : { transform, willChange: 'transform' }}
         />
       </div>
       {caption ? <figcaption className="photo__caption">{caption}</figcaption> : null}

@@ -4,6 +4,8 @@ import { MagnifyingGlass, Phone, ArrowRight } from '@phosphor-icons/react';
 import { FAQ, type FaqItem } from '../data/faq';
 import { SITE } from '../data/site';
 import { Reveal } from '../components/motion/Reveal';
+import { ParallaxPhoto } from '../components/motion/Photo';
+import cabinet from '../assets/photos/cabinet-consultation.jpg';
 import { AccordionItem } from '../components/ui/Accordion';
 import { Seo } from '../components/ui/Seo';
 
@@ -115,6 +117,22 @@ export default function Faq() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Une respiration entre la liste de questions et l'appel à contacter :
+          la page est longue et entièrement textuelle sans elle. */}
+      <section className="section--tight" aria-hidden="true" style={{ paddingBottom: 0 }}>
+        <div className="shell">
+          <Reveal y={16}>
+            <ParallaxPhoto
+              src={cabinet}
+              alt=""
+              graded
+              distance={48}
+              className="faq-break"
+            />
+          </Reveal>
         </div>
       </section>
 

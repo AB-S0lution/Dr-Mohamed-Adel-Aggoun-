@@ -5,7 +5,9 @@ import { SITE } from '../data/site';
 import { buildMailtoUrl, buildWhatsappUrl, type ContactFormValues } from '../lib/contact-links';
 import { buildUpcomingDays, slotsForDay, type SlotOption } from '../lib/scheduler';
 import { SPECIALTIES } from '../data/specialties';
+import { PREPARATION } from '../data/preparation';
 import { Reveal } from '../components/motion/Reveal';
+import { Icon } from '../components/ui/Icon';
 import { Seo } from '../components/ui/Seo';
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -23,6 +25,8 @@ export default function Contact() {
 
   const [selectedIso, setSelectedIso] = useState(firstOpen.iso);
   const [slotKey, setSlotKey] = useState<SlotOption['key'] | null>(null);
+  const [prepSlug, setPrepSlug] = useState(PREPARATION[0].slug);
+  const prep = PREPARATION.find((p) => p.slug === prepSlug) ?? PREPARATION[0];
   const [values, setValues] = useState<ContactFormValues>({
     name: '',
     phone: '',
@@ -334,6 +338,90 @@ Date souhaitée (à confirmer) : ${selectedDay.fullLabel}${
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Ce qu'il faut apporter : la question posée au téléphone presque à
+          chaque prise de rendez-vous, répondue une fois pour toutes. */}
+      <section className="section" aria-labelledby="preparer-titre" style={{ background: 'var(--bg-sunken)' }}>
+        <div className="shell">
+          <div className="sec-head">
+            <div>
+              <Reveal y={12}>
+                <span className="eyebrow">Avant de venir</span>
+              </Reveal>
+              <Reveal delay={0.05}>
+                <h2 id="preparer-titre" className="display-lg" style={{ maxWidth: '20ch' }}>
+                  Ce qu'il faut <span className="accent-word">apporter</span>
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal delay={0.1}>
+              <p className="lede">
+                Choisissez le motif le plus proche du vôtre. Ces listes sont indicatives : une
+                consultation se tient même s'il manque un document.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal y={12}>
+            <div className="filter-bar" role="group" aria-label="Choisir un motif de consultation">
+              {PREPARATION.map((p) => (
+                <button
+                  key={p.slug}
+                  type="button"
+                  className="filter-chip"
+                  aria-pressed={prepSlug === p.slug}
+                  onClick={() => setPrepSlug(p.slug)}
+                >
+                  {p.title}
+                </button>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal y={14} delay={0.06}>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={prep.slug}
+                className="prep-panel"
+                style={{ marginTop: '1.75rem' }}
+                initial={reduce ? { opacity: 0 } : { opacity: 0, transform: 'translateY(0.6rem)' }}
+                animate={{ opacity: 1, transform: 'translateY(0rem)' }}
+                exit={reduce ? { opacity: 0 } : { opacity: 0, transform: 'translateY(-0.3rem)' }}
+                transition={{ duration: 0.28, ease: EASE }}
+              >
+                <div className="split split--aside">
+                  <div>
+                    <h3 className="display-md">{prep.title}</h3>
+                    <p className="text-muted" style={{ marginTop: '0.6rem', lineHeight: 1.65 }}>
+                      {prep.who}
+                    </p>
+                    <ul className="prep-items">
+                      {prep.items.map((item) => (
+                        <li key={item}>
+                          <Icon name="check" size={16} className="spec-sign-check" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="stack stack-md">
+                    <div>
+                      <p className="fact__label">À retenir</p>
+                      <p className="text-muted" style={{ marginTop: '0.6rem', lineHeight: 1.65 }}>
+                        {prep.note}
+                      </p>
+                    </div>
+                    <a href={SITE.mobileHref} className="btn btn-secondary" style={{ alignSelf: 'flex-start' }}>
+                      <Phone size={17} weight="light" />
+                      Un doute ? {SITE.mobileDisplay}
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </Reveal>
         </div>
       </section>
     </>

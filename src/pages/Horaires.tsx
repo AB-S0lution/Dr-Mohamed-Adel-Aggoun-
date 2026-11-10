@@ -3,6 +3,8 @@ import { Phone, MapPin, NavigationArrow, Warning, ArrowRight } from '@phosphor-i
 import { SITE } from '../data/site';
 import { HOURS, HOURS_TODO_NOTE, getTodayHours } from '../data/hours';
 import { Reveal, RevealGroup, RevealItem } from '../components/motion/Reveal';
+import { ParallaxPhoto } from '../components/motion/Photo';
+import mains from '../assets/photos/accompagnement-mains.jpg';
 import { StatusPill } from '../components/ui/StatusPill';
 import { Seo } from '../components/ui/Seo';
 
@@ -127,7 +129,8 @@ export default function Horaires() {
             </Reveal>
           </div>
 
-          <RevealGroup as="ol" className="post-list">
+          <div className="split split--aside">
+            <RevealGroup as="ol" className="post-list">
             {LANDMARKS.map((l, i) => (
               <RevealItem key={l.title} as="li" className="post-row">
                 <span className="post-row__meta tnum">{String(i + 1).padStart(2, '0')}</span>
@@ -152,7 +155,18 @@ export default function Horaires() {
                 </span>
               </RevealItem>
             ))}
-          </RevealGroup>
+            </RevealGroup>
+
+            <Reveal y={16} delay={0.08} className="photo-follow">
+              <ParallaxPhoto
+                src={mains}
+                alt="Mains d'un soignant posées sur celles d'un patient"
+                graded
+                distance={38}
+                caption="Le cabinet reçoit sur rendez-vous : un appel avant de se déplacer évite un trajet pour rien."
+              />
+            </Reveal>
+          </div>
 
           <Reveal delay={0.1}>
             <Link to="/contact" className="btn btn-secondary" style={{ marginTop: '2rem' }}>
